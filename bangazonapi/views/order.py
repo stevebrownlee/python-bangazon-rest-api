@@ -1,11 +1,12 @@
 """View module for handling requests about park areas"""
+import datetime
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from rest_framework.decorators import action
-from bangazonapi.models import Order, Payment, Customer, Product
+from bangazonapi.models import Order, Payment, Customer, Product, OrderProduct
 from .product import ProductSerializer
 
 '''
@@ -115,24 +116,43 @@ class Orders(ViewSet):
             orders, many=True, context={'request': request})
         return Response(serializer.data)
 
-    @action(methods=['get'], detail=False)
+    @action(methods=['get', 'put'], detail=False)
     def cart(self, request):
-        current_user = Customer.objects.get(user=request.auth.user)
+        if request.method == "GET":
+            current_user = Customer.objects.get(user=request.auth.user)
 
-        try:
-            open_order = Order.objects.get(customer=current_user, payment_type=None)
-            products_on_order = Product.objects.filter(cart__order=open_order)
+            try:
+                open_order = Order.objects.get(customer=current_user, payment_type=None)
+                products_on_order = Product.objects.filter(cart__order=open_order)
 
-            serialized_order = OrderSerializer(open_order, many=False, context={'request': request})
-            product_list = ProductSerializer(products_on_order, many=True, context={'request': request})
+                serialized_order = OrderSerializer(open_order, many=False, context={'request': request})
+                product_list = ProductSerializer(products_on_order, many=True, context={'request': request})
 
-            final = {
-                "order": serialized_order.data
-            }
-            final["order"]["products"] = product_list.data
+                final = {
+                    "order": serialized_order.data
+                }
+                final["order"]["products"] = product_list.data
 
 
-        except Order.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+            except Order.DoesNotExist as ex:
+                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
-        return Response(final)
+            return Response(final)
+
+        if request.method == "PUT":
+            current_user = Customer.objects.get(user=request.auth.user)
+
+            try:
+                open_order = Order.objects.get(customer=current_user, payment_type=None)
+            except Order.DoesNotExist as ex:
+                open_order = Order()
+                open_order.created_date = datetime.datetime.now()
+                open_order.customer = current_user
+                open_order.save()
+
+            line_item = OrderProduct()
+            line_item.product = Product.objects.get(pk=request.data["product_id"])
+            line_item.order = open_order
+            line_item.save()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)

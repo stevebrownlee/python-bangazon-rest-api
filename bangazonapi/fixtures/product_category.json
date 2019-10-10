@@ -10,7 +10,7 @@
         "model": "bangazonapi.productcategory",
         "pk": 2,
         "fields": {
-            "name": "Food"
+            "name": "Auto"
         }
     },
     {

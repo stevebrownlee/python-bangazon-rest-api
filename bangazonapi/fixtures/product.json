@@ -3,30 +3,1500 @@
         "model": "bangazonapi.product",
         "pk": 1,
         "fields": {
-            "name": "Big Monitor",
-            "customer_id": "1",
-            "price": "499.99",
-            "description": "It's a big monitor. You will be able to watch things bigly on it.",
-            "quantity": "100",
-            "created_date": "2019-03-24",
-            "product_category_id": "3",
-            "location": "Nashville",
-            "image": ""
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "product_category_id": 2,
+            "location": "Onguday",
+            "image_path": ""
         }
     },
     {
         "model": "bangazonapi.product",
         "pk": 2,
         "fields": {
-            "name": "Small Monitor",
-            "customer_id": "2",
-            "price": "199.99",
-            "description": "It's a small monitor. You will no be able to watch things bigly on it.",
-            "quantity": "100",
-            "created_date": "2019-04-24",
-            "product_category_id": "3",
-            "location": "Nashville",
-            "image": ""
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "product_category_id": 2,
+            "location": "Zhongshan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 3,
+        "fields": {
+            "name": "Durango",
+            "customer_id": 6,
+            "price": 541.17,
+            "description": "1998 Dodge",
+            "quantity": 2,
+            "created_date": "2019-05-16",
+            "product_category_id": 2,
+            "location": "Górki Wielkie",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 4,
+        "fields": {
+            "name": "H1",
+            "customer_id": 5,
+            "price": 1448.54,
+            "description": "2004 Hummer",
+            "quantity": 3,
+            "created_date": "2019-05-24",
+            "product_category_id": 2,
+            "location": "Santa Maria",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 5,
+        "fields": {
+            "name": "LR3",
+            "customer_id": 7,
+            "price": 1478.47,
+            "description": "2008 Land Rover",
+            "quantity": 1,
+            "created_date": "2019-04-04",
+            "product_category_id": 2,
+            "location": "Tagbilaran City",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 6,
+        "fields": {
+            "name": "Tacoma Xtra",
+            "customer_id": 4,
+            "price": 1385.85,
+            "description": "1995 Toyota",
+            "quantity": 1,
+            "created_date": "2019-08-25",
+            "product_category_id": 2,
+            "location": "Talakag",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 7,
+        "fields": {
+            "name": "Camry",
+            "customer_id": 7,
+            "price": 991.91,
+            "description": "2011 Toyota",
+            "quantity": 1,
+            "created_date": "2019-06-25",
+            "product_category_id": 2,
+            "location": "Krajan Dukuhseti",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 8,
+        "fields": {
+            "name": "Viper",
+            "customer_id": 6,
+            "price": 1650.55,
+            "description": "2003 Dodge",
+            "quantity": 4,
+            "created_date": "2019-07-18",
+            "product_category_id": 2,
+            "location": "Ul",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 9,
+        "fields": {
+            "name": "Celica",
+            "customer_id": 5,
+            "price": 1344.43,
+            "description": "1982 Toyota",
+            "quantity": 1,
+            "created_date": "2019-08-03",
+            "product_category_id": 2,
+            "location": "Al ‘Āliyah",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 10,
+        "fields": {
+            "name": "Land Cruiser",
+            "customer_id": 5,
+            "price": 1768.97,
+            "description": "2008 Toyota",
+            "quantity": 3,
+            "created_date": "2019-10-07",
+            "product_category_id": 2,
+            "location": "Niverville",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 11,
+        "fields": {
+            "name": "Montero",
+            "customer_id": 6,
+            "price": 1581.38,
+            "description": "1995 Mitsubishi",
+            "quantity": 2,
+            "created_date": "2018-10-22",
+            "product_category_id": 2,
+            "location": "Kalumpang",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 12,
+        "fields": {
+            "name": "E-Series",
+            "customer_id": 4,
+            "price": 1342.37,
+            "description": "1989 Ford",
+            "quantity": 3,
+            "created_date": "2018-11-13",
+            "product_category_id": 2,
+            "location": "Florestópolis",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 13,
+        "fields": {
+            "name": "Express 3500",
+            "customer_id": 4,
+            "price": 714.78,
+            "description": "2003 Chevrolet",
+            "quantity": 2,
+            "created_date": "2019-01-02",
+            "product_category_id": 2,
+            "location": "Cabo",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 14,
+        "fields": {
+            "name": "Vantage",
+            "customer_id": 7,
+            "price": 1739.53,
+            "description": "2007 Aston Martin",
+            "quantity": 2,
+            "created_date": "2019-03-31",
+            "product_category_id": 2,
+            "location": "Palecenan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 15,
+        "fields": {
+            "name": "Astro",
+            "customer_id": 6,
+            "price": 762.55,
+            "description": "2000 Chevrolet",
+            "quantity": 2,
+            "created_date": "2019-03-06",
+            "product_category_id": 2,
+            "location": "Albarraque",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 16,
+        "fields": {
+            "name": "Sunbird",
+            "customer_id": 6,
+            "price": 1800.33,
+            "description": "1991 Pontiac",
+            "quantity": 1,
+            "created_date": "2019-08-09",
+            "product_category_id": 2,
+            "location": "Luoxi",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 17,
+        "fields": {
+            "name": "XT",
+            "customer_id": 5,
+            "price": 964.47,
+            "description": "1989 Subaru",
+            "quantity": 2,
+            "created_date": "2019-07-04",
+            "product_category_id": 2,
+            "location": "Harbin",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 18,
+        "fields": {
+            "name": "Impala",
+            "customer_id": 6,
+            "price": 954.15,
+            "description": "2007 Chevrolet",
+            "quantity": 1,
+            "created_date": "2019-02-10",
+            "product_category_id": 2,
+            "location": "Ke’erlun",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 19,
+        "fields": {
+            "name": "MPV",
+            "customer_id": 5,
+            "price": 845.13,
+            "description": "1997 Mazda",
+            "quantity": 4,
+            "created_date": "2019-01-05",
+            "product_category_id": 2,
+            "location": "Utama Wetan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 20,
+        "fields": {
+            "name": "Mazda6",
+            "customer_id": 4,
+            "price": 1900.67,
+            "description": "2005 Mazda",
+            "quantity": 2,
+            "created_date": "2018-12-13",
+            "product_category_id": 2,
+            "location": "Tuburan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 21,
+        "fields": {
+            "name": "Rio",
+            "customer_id": 5,
+            "price": 1240.2,
+            "description": "2013 Kia",
+            "quantity": 1,
+            "created_date": "2019-07-30",
+            "product_category_id": 2,
+            "location": "Presnenskiy",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 22,
+        "fields": {
+            "name": "Safari",
+            "customer_id": 4,
+            "price": 1547.74,
+            "description": "1986 Pontiac",
+            "quantity": 2,
+            "created_date": "2019-01-19",
+            "product_category_id": 2,
+            "location": "Połomia",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 23,
+        "fields": {
+            "name": "Celica",
+            "customer_id": 6,
+            "price": 1306.31,
+            "description": "1978 Toyota",
+            "quantity": 2,
+            "created_date": "2019-06-25",
+            "product_category_id": 2,
+            "location": "Zhenxing",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 24,
+        "fields": {
+            "name": "Talon",
+            "customer_id": 6,
+            "price": 788.94,
+            "description": "1993 Eagle",
+            "quantity": 4,
+            "created_date": "2019-08-27",
+            "product_category_id": 2,
+            "location": "Kuluran",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 25,
+        "fields": {
+            "name": "Silverado 2500",
+            "customer_id": 4,
+            "price": 1257.48,
+            "description": "2003 Chevrolet",
+            "quantity": 2,
+            "created_date": "2019-04-09",
+            "product_category_id": 2,
+            "location": "Feteira Pequena",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 26,
+        "fields": {
+            "name": "Eclipse",
+            "customer_id": 5,
+            "price": 1095.95,
+            "description": "1999 Mitsubishi",
+            "quantity": 3,
+            "created_date": "2019-03-22",
+            "product_category_id": 2,
+            "location": "Pôrto Barra do Ivinheima",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 27,
+        "fields": {
+            "name": "Range Rover",
+            "customer_id": 4,
+            "price": 1564.25,
+            "description": "2002 Land Rover",
+            "quantity": 1,
+            "created_date": "2019-05-14",
+            "product_category_id": 2,
+            "location": "Yong’an",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 28,
+        "fields": {
+            "name": "Corvette",
+            "customer_id": 4,
+            "price": 1478.17,
+            "description": "1964 Chevrolet",
+            "quantity": 3,
+            "created_date": "2019-05-30",
+            "product_category_id": 2,
+            "location": "Benchu",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 29,
+        "fields": {
+            "name": "Lancer Evolution",
+            "customer_id": 5,
+            "price": 1562.53,
+            "description": "2002 Mitsubishi",
+            "quantity": 2,
+            "created_date": "2018-10-27",
+            "product_category_id": 2,
+            "location": "Molsheim",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 30,
+        "fields": {
+            "name": "Shadow",
+            "customer_id": 7,
+            "price": 1581.43,
+            "description": "1993 Dodge",
+            "quantity": 3,
+            "created_date": "2019-05-01",
+            "product_category_id": 2,
+            "location": "Lescar",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 31,
+        "fields": {
+            "name": "Transit Connect",
+            "customer_id": 4,
+            "price": 1441.52,
+            "description": "2012 Ford",
+            "quantity": 2,
+            "created_date": "2018-11-30",
+            "product_category_id": 2,
+            "location": "Biliran",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 32,
+        "fields": {
+            "name": "DB9",
+            "customer_id": 5,
+            "price": 1912.51,
+            "description": "2008 Aston Martin",
+            "quantity": 3,
+            "created_date": "2019-01-06",
+            "product_category_id": 2,
+            "location": "Paris 07",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 33,
+        "fields": {
+            "name": "Stratus",
+            "customer_id": 7,
+            "price": 1199.91,
+            "description": "2001 Dodge",
+            "quantity": 1,
+            "created_date": "2019-04-06",
+            "product_category_id": 2,
+            "location": "Tianning",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 34,
+        "fields": {
+            "name": "Chariot",
+            "customer_id": 6,
+            "price": 1298.59,
+            "description": "1992 Mitsubishi",
+            "quantity": 1,
+            "created_date": "2019-04-27",
+            "product_category_id": 2,
+            "location": "Cimara",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 35,
+        "fields": {
+            "name": "V70",
+            "customer_id": 6,
+            "price": 1419.97,
+            "description": "2002 Volvo",
+            "quantity": 3,
+            "created_date": "2018-11-04",
+            "product_category_id": 2,
+            "location": "Even Yehuda",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 36,
+        "fields": {
+            "name": "GTO",
+            "customer_id": 6,
+            "price": 1807.33,
+            "description": "1999 Mitsubishi",
+            "quantity": 4,
+            "created_date": "2018-10-14",
+            "product_category_id": 2,
+            "location": "Sanquan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 37,
+        "fields": {
+            "name": "Silverado 2500",
+            "customer_id": 4,
+            "price": 775.5,
+            "description": "2009 Chevrolet",
+            "quantity": 1,
+            "created_date": "2019-09-17",
+            "product_category_id": 2,
+            "location": "Xihu",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 38,
+        "fields": {
+            "name": "C70",
+            "customer_id": 7,
+            "price": 734.81,
+            "description": "2012 Volvo",
+            "quantity": 4,
+            "created_date": "2019-08-12",
+            "product_category_id": 2,
+            "location": "Ipís",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 39,
+        "fields": {
+            "name": "Esteem",
+            "customer_id": 7,
+            "price": 1453.83,
+            "description": "1996 Suzuki",
+            "quantity": 1,
+            "created_date": "2019-05-24",
+            "product_category_id": 2,
+            "location": "Hat Yai",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 40,
+        "fields": {
+            "name": "Eldorado",
+            "customer_id": 6,
+            "price": 901.87,
+            "description": "1999 Cadillac",
+            "quantity": 4,
+            "created_date": "2019-05-11",
+            "product_category_id": 2,
+            "location": "Kaeng Khoi",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 41,
+        "fields": {
+            "name": "Impreza",
+            "customer_id": 6,
+            "price": 1913.81,
+            "description": "1998 Subaru",
+            "quantity": 4,
+            "created_date": "2019-03-15",
+            "product_category_id": 2,
+            "location": "Dingjiaqiao",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 42,
+        "fields": {
+            "name": "Xterra",
+            "customer_id": 6,
+            "price": 1045.9,
+            "description": "2010 Nissan",
+            "quantity": 4,
+            "created_date": "2019-01-15",
+            "product_category_id": 2,
+            "location": "Lunenburg",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 43,
+        "fields": {
+            "name": "Sidekick",
+            "customer_id": 7,
+            "price": 1113.66,
+            "description": "1990 Suzuki",
+            "quantity": 4,
+            "created_date": "2019-10-09",
+            "product_category_id": 2,
+            "location": "Canmore",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 44,
+        "fields": {
+            "name": "Astro",
+            "customer_id": 7,
+            "price": 1486.31,
+            "description": "2000 Chevrolet",
+            "quantity": 4,
+            "created_date": "2019-03-25",
+            "product_category_id": 2,
+            "location": "Denver",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 45,
+        "fields": {
+            "name": "Corvette",
+            "customer_id": 6,
+            "price": 795.8,
+            "description": "1987 Chevrolet",
+            "quantity": 2,
+            "created_date": "2019-10-07",
+            "product_category_id": 2,
+            "location": "Ueno",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 46,
+        "fields": {
+            "name": "Mountaineer",
+            "customer_id": 6,
+            "price": 1188.66,
+            "description": "2008 Mercury",
+            "quantity": 1,
+            "created_date": "2019-08-19",
+            "product_category_id": 2,
+            "location": "Staryy Oskol",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 47,
+        "fields": {
+            "name": "Rendezvous",
+            "customer_id": 6,
+            "price": 1489.6,
+            "description": "2003 Buick",
+            "quantity": 2,
+            "created_date": "2018-12-09",
+            "product_category_id": 2,
+            "location": "Marechal Cândido Rondon",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 48,
+        "fields": {
+            "name": "Expedition EL",
+            "customer_id": 5,
+            "price": 1642.57,
+            "description": "2009 Ford",
+            "quantity": 4,
+            "created_date": "2019-05-04",
+            "product_category_id": 2,
+            "location": "Kranuan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 49,
+        "fields": {
+            "name": "Highlander",
+            "customer_id": 6,
+            "price": 1192.71,
+            "description": "2005 Toyota",
+            "quantity": 4,
+            "created_date": "2018-10-15",
+            "product_category_id": 2,
+            "location": "Guaxupé",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 50,
+        "fields": {
+            "name": "Escalade EXT",
+            "customer_id": 4,
+            "price": 926.92,
+            "description": "2008 Cadillac",
+            "quantity": 2,
+            "created_date": "2019-02-01",
+            "product_category_id": 2,
+            "location": "Lokavec",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 51,
+        "fields": {
+            "name": "Truck",
+            "customer_id": 5,
+            "price": 1428.75,
+            "description": "1996 Mitsubishi",
+            "quantity": 2,
+            "created_date": "2019-04-29",
+            "product_category_id": 2,
+            "location": "Batukuta",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 52,
+        "fields": {
+            "name": "900",
+            "customer_id": 7,
+            "price": 1296.98,
+            "description": "1987 Saab",
+            "quantity": 2,
+            "created_date": "2019-03-19",
+            "product_category_id": 2,
+            "location": "Vratsa",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 53,
+        "fields": {
+            "name": "Grand Prix",
+            "customer_id": 5,
+            "price": 666.98,
+            "description": "1965 Pontiac",
+            "quantity": 1,
+            "created_date": "2019-07-28",
+            "product_category_id": 2,
+            "location": "Jesenice",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 54,
+        "fields": {
+            "name": "RX-7",
+            "customer_id": 4,
+            "price": 1071.34,
+            "description": "1984 Mazda",
+            "quantity": 3,
+            "created_date": "2018-11-03",
+            "product_category_id": 2,
+            "location": "Pingling",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 55,
+        "fields": {
+            "name": "Ram Van 1500",
+            "customer_id": 7,
+            "price": 1028.79,
+            "description": "1995 Dodge",
+            "quantity": 1,
+            "created_date": "2019-07-01",
+            "product_category_id": 2,
+            "location": "Heerlen",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 56,
+        "fields": {
+            "name": "M-Class",
+            "customer_id": 4,
+            "price": 807.88,
+            "description": "2011 Mercedes-Benz",
+            "quantity": 1,
+            "created_date": "2019-06-17",
+            "product_category_id": 2,
+            "location": "Lý Sơn",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 57,
+        "fields": {
+            "name": "Ram 2500",
+            "customer_id": 5,
+            "price": 605.84,
+            "description": "1997 Dodge",
+            "quantity": 3,
+            "created_date": "2018-12-26",
+            "product_category_id": 2,
+            "location": "Puerto Obaldía",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 58,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 5,
+            "price": 692.12,
+            "description": "1987 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-01-09",
+            "product_category_id": 2,
+            "location": "Lizhuangzi",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 59,
+        "fields": {
+            "name": "Vibe",
+            "customer_id": 5,
+            "price": 1141.28,
+            "description": "2009 Pontiac",
+            "quantity": 1,
+            "created_date": "2019-03-03",
+            "product_category_id": 2,
+            "location": "Muyi",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 60,
+        "fields": {
+            "name": "Elantra",
+            "customer_id": 6,
+            "price": 1989.84,
+            "description": "1994 Hyundai",
+            "quantity": 1,
+            "created_date": "2019-01-19",
+            "product_category_id": 2,
+            "location": "Sosnovoborsk",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 61,
+        "fields": {
+            "name": "Tracker",
+            "customer_id": 6,
+            "price": 1850.74,
+            "description": "2000 Chevrolet",
+            "quantity": 1,
+            "created_date": "2019-05-15",
+            "product_category_id": 2,
+            "location": "Kogon",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 62,
+        "fields": {
+            "name": "Sunbird",
+            "customer_id": 7,
+            "price": 1073.42,
+            "description": "1989 Pontiac",
+            "quantity": 2,
+            "created_date": "2018-10-26",
+            "product_category_id": 2,
+            "location": "Gareba",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 63,
+        "fields": {
+            "name": "Express 3500",
+            "customer_id": 6,
+            "price": 855.27,
+            "description": "2012 Chevrolet",
+            "quantity": 1,
+            "created_date": "2019-06-27",
+            "product_category_id": 2,
+            "location": "Gelatik",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 64,
+        "fields": {
+            "name": "1500 Club Coupe",
+            "customer_id": 6,
+            "price": 1737.03,
+            "description": "1992 GMC",
+            "quantity": 3,
+            "created_date": "2019-07-18",
+            "product_category_id": 2,
+            "location": "Lescar",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 65,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 4,
+            "price": 1475.41,
+            "description": "2007 Kia",
+            "quantity": 1,
+            "created_date": "2019-01-19",
+            "product_category_id": 2,
+            "location": "Kafr Takhārīm",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 66,
+        "fields": {
+            "name": "B-Series Plus",
+            "customer_id": 4,
+            "price": 1756.62,
+            "description": "1997 Mazda",
+            "quantity": 3,
+            "created_date": "2019-05-16",
+            "product_category_id": 2,
+            "location": "Dobri Dol",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 67,
+        "fields": {
+            "name": "Sky",
+            "customer_id": 7,
+            "price": 1578.19,
+            "description": "2008 Saturn",
+            "quantity": 4,
+            "created_date": "2019-05-13",
+            "product_category_id": 2,
+            "location": "Rungis",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 68,
+        "fields": {
+            "name": "CX-9",
+            "customer_id": 5,
+            "price": 1750.74,
+            "description": "2011 Mazda",
+            "quantity": 4,
+            "created_date": "2019-05-21",
+            "product_category_id": 2,
+            "location": "Qiankeng",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 69,
+        "fields": {
+            "name": "Esteem",
+            "customer_id": 4,
+            "price": 1457.3,
+            "description": "1996 Suzuki",
+            "quantity": 1,
+            "created_date": "2019-01-10",
+            "product_category_id": 2,
+            "location": "Korolevo",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 70,
+        "fields": {
+            "name": "1500",
+            "customer_id": 4,
+            "price": 1258.88,
+            "description": "1995 GMC",
+            "quantity": 3,
+            "created_date": "2019-04-16",
+            "product_category_id": 2,
+            "location": "Pryamitsyno",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 71,
+        "fields": {
+            "name": "Sebring",
+            "customer_id": 6,
+            "price": 1045.66,
+            "description": "1999 Chrysler",
+            "quantity": 4,
+            "created_date": "2019-05-18",
+            "product_category_id": 2,
+            "location": "Namibe",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 72,
+        "fields": {
+            "name": "Escape",
+            "customer_id": 4,
+            "price": 1747.41,
+            "description": "2000 Ford",
+            "quantity": 1,
+            "created_date": "2019-09-10",
+            "product_category_id": 2,
+            "location": "Bilqās",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 73,
+        "fields": {
+            "name": "Coachbuilder",
+            "customer_id": 5,
+            "price": 807.53,
+            "description": "1990 Buick",
+            "quantity": 4,
+            "created_date": "2019-02-12",
+            "product_category_id": 2,
+            "location": "Ushiku",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 74,
+        "fields": {
+            "name": "Allante",
+            "customer_id": 7,
+            "price": 763.3,
+            "description": "1993 Cadillac",
+            "quantity": 2,
+            "created_date": "2019-05-15",
+            "product_category_id": 2,
+            "location": "Elvas",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 75,
+        "fields": {
+            "name": "Sentra",
+            "customer_id": 5,
+            "price": 1172.25,
+            "description": "1991 Nissan",
+            "quantity": 4,
+            "created_date": "2019-09-12",
+            "product_category_id": 2,
+            "location": "Kaset Sombun",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 76,
+        "fields": {
+            "name": "Type 2",
+            "customer_id": 4,
+            "price": 974.69,
+            "description": "1985 Volkswagen",
+            "quantity": 2,
+            "created_date": "2019-08-03",
+            "product_category_id": 2,
+            "location": "Kotabunan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 77,
+        "fields": {
+            "name": "Town & Country",
+            "customer_id": 5,
+            "price": 621.62,
+            "description": "1998 Chrysler",
+            "quantity": 2,
+            "created_date": "2019-03-19",
+            "product_category_id": 2,
+            "location": "Mętków",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 78,
+        "fields": {
+            "name": "Cooper",
+            "customer_id": 5,
+            "price": 625.27,
+            "description": "2004 MINI",
+            "quantity": 1,
+            "created_date": "2018-10-27",
+            "product_category_id": 2,
+            "location": "Cilaja",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 79,
+        "fields": {
+            "name": "S8",
+            "customer_id": 7,
+            "price": 1210.76,
+            "description": "2007 Audi",
+            "quantity": 1,
+            "created_date": "2018-11-08",
+            "product_category_id": 2,
+            "location": "Dargaz",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 80,
+        "fields": {
+            "name": "Grand Cherokee",
+            "customer_id": 6,
+            "price": 1083.19,
+            "description": "2000 Jeep",
+            "quantity": 1,
+            "created_date": "2019-08-31",
+            "product_category_id": 2,
+            "location": "Welchman Hall",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 81,
+        "fields": {
+            "name": "Pathfinder",
+            "customer_id": 6,
+            "price": 1585.89,
+            "description": "2010 Nissan",
+            "quantity": 4,
+            "created_date": "2019-05-22",
+            "product_category_id": 2,
+            "location": "Komsomolets",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 82,
+        "fields": {
+            "name": "Toronado",
+            "customer_id": 4,
+            "price": 1191.55,
+            "description": "1992 Oldsmobile",
+            "quantity": 3,
+            "created_date": "2018-12-09",
+            "product_category_id": 2,
+            "location": "Dushan",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 83,
+        "fields": {
+            "name": "Passat",
+            "customer_id": 6,
+            "price": 1301.75,
+            "description": "2008 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-08-24",
+            "product_category_id": 2,
+            "location": "Gerdu",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 84,
+        "fields": {
+            "name": "3500",
+            "customer_id": 6,
+            "price": 782.94,
+            "description": "1994 Chevrolet",
+            "quantity": 2,
+            "created_date": "2019-05-16",
+            "product_category_id": 2,
+            "location": "Iaçu",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 85,
+        "fields": {
+            "name": "S40",
+            "customer_id": 6,
+            "price": 699.63,
+            "description": "2001 Volvo",
+            "quantity": 4,
+            "created_date": "2018-12-23",
+            "product_category_id": 2,
+            "location": "Jayapura",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 86,
+        "fields": {
+            "name": "1500 Club Coupe",
+            "customer_id": 6,
+            "price": 676.11,
+            "description": "1997 GMC",
+            "quantity": 2,
+            "created_date": "2019-07-26",
+            "product_category_id": 2,
+            "location": "Santo Tomas",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 87,
+        "fields": {
+            "name": "Legend",
+            "customer_id": 5,
+            "price": 1019.99,
+            "description": "1995 Acura",
+            "quantity": 1,
+            "created_date": "2019-05-01",
+            "product_category_id": 2,
+            "location": "Titab",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 88,
+        "fields": {
+            "name": "Element",
+            "customer_id": 5,
+            "price": 1727.41,
+            "description": "2003 Honda",
+            "quantity": 3,
+            "created_date": "2019-05-28",
+            "product_category_id": 2,
+            "location": "Dukoh",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 89,
+        "fields": {
+            "name": "RX-7",
+            "customer_id": 4,
+            "price": 580.92,
+            "description": "1992 Mazda",
+            "quantity": 3,
+            "created_date": "2019-09-28",
+            "product_category_id": 2,
+            "location": "Xuebu",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 90,
+        "fields": {
+            "name": "Protege",
+            "customer_id": 7,
+            "price": 589.58,
+            "description": "1998 Mazda",
+            "quantity": 4,
+            "created_date": "2018-12-20",
+            "product_category_id": 2,
+            "location": "Usa River",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 91,
+        "fields": {
+            "name": "LUV",
+            "customer_id": 5,
+            "price": 1725.64,
+            "description": "1979 Chevrolet",
+            "quantity": 3,
+            "created_date": "2019-07-01",
+            "product_category_id": 2,
+            "location": "Tsuruga",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 92,
+        "fields": {
+            "name": "Versa",
+            "customer_id": 6,
+            "price": 888.68,
+            "description": "2009 Nissan",
+            "quantity": 1,
+            "created_date": "2018-11-20",
+            "product_category_id": 2,
+            "location": "Rangah",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 93,
+        "fields": {
+            "name": "Sable",
+            "customer_id": 7,
+            "price": 1352.23,
+            "description": "1991 Mercury",
+            "quantity": 1,
+            "created_date": "2019-09-07",
+            "product_category_id": 2,
+            "location": "Ipiaú",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 94,
+        "fields": {
+            "name": "Eclipse",
+            "customer_id": 4,
+            "price": 1139.37,
+            "description": "2002 Mitsubishi",
+            "quantity": 2,
+            "created_date": "2019-08-29",
+            "product_category_id": 2,
+            "location": "Pryazovs’ke",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 95,
+        "fields": {
+            "name": "Charger",
+            "customer_id": 7,
+            "price": 727.07,
+            "description": "1970 Dodge",
+            "quantity": 3,
+            "created_date": "2019-01-08",
+            "product_category_id": 2,
+            "location": "Świdwin",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 96,
+        "fields": {
+            "name": "Savana 2500",
+            "customer_id": 5,
+            "price": 523.52,
+            "description": "2003 GMC",
+            "quantity": 4,
+            "created_date": "2019-09-18",
+            "product_category_id": 2,
+            "location": "Muli",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 97,
+        "fields": {
+            "name": "Escalade EXT",
+            "customer_id": 5,
+            "price": 1565.45,
+            "description": "2010 Cadillac",
+            "quantity": 3,
+            "created_date": "2019-06-06",
+            "product_category_id": 2,
+            "location": "Tharyarwady",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 98,
+        "fields": {
+            "name": "Explorer Sport Trac",
+            "customer_id": 5,
+            "price": 1611.83,
+            "description": "2000 Ford",
+            "quantity": 4,
+            "created_date": "2019-01-05",
+            "product_category_id": 2,
+            "location": "Santa Praxedes",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 99,
+        "fields": {
+            "name": "Continental Flying Spur",
+            "customer_id": 6,
+            "price": 1467.39,
+            "description": "2011 Bentley",
+            "quantity": 1,
+            "created_date": "2019-05-08",
+            "product_category_id": 2,
+            "location": "Yambol",
+            "image_path": ""
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 100,
+        "fields": {
+            "name": "Equinox",
+            "customer_id": 4,
+            "price": 537.51,
+            "description": "2012 Chevrolet",
+            "quantity": 1,
+            "created_date": "2019-01-28",
+            "product_category_id": 2,
+            "location": "Sison",
+            "image_path": ""
         }
     }
 ]

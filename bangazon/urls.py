@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^register$', register_user),
     url(r'^login$', login_user),
     url(r'^api-token-auth$', obtain_auth_token),
-    url(r'^api-auth$', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-auth', include('rest_framework.urls', namespace='rest_framework')),
 ]
