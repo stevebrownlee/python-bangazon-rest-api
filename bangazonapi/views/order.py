@@ -15,13 +15,13 @@ purpose: Allow a user to communicate with the Bangazon database to GET PUT POST 
 methods: all
 '''
 
+
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for order
 
     Arguments:
         serializers
     """
-
 
     class Meta:
         model = Order
@@ -102,7 +102,6 @@ class Orders(ViewSet):
         """
         orders = Order.objects.all()
 
-
         customer = self.request.query_params.get('customer_id', None)
         payment = self.request.query_params.get('payment_id', None)
         if customer is not None:
@@ -118,21 +117,29 @@ class Orders(ViewSet):
 
     @action(methods=['get', 'put'], detail=False)
     def cart(self, request):
+        """Shopping cart route for customers
+
+        Returns:
+            Response -- An HTTP response
+        """
         if request.method == "GET":
             current_user = Customer.objects.get(user=request.auth.user)
 
             try:
-                open_order = Order.objects.get(customer=current_user, payment_type=None)
-                products_on_order = Product.objects.filter(cart__order=open_order)
+                open_order = Order.objects.get(
+                    customer=current_user, payment_type=None)
+                products_on_order = Product.objects.filter(
+                    cart__order=open_order)
 
-                serialized_order = OrderSerializer(open_order, many=False, context={'request': request})
-                product_list = ProductSerializer(products_on_order, many=True, context={'request': request})
+                serialized_order = OrderSerializer(
+                    open_order, many=False, context={'request': request})
+                product_list = ProductSerializer(
+                    products_on_order, many=True, context={'request': request})
 
                 final = {
                     "order": serialized_order.data
                 }
                 final["order"]["products"] = product_list.data
-
 
             except Order.DoesNotExist as ex:
                 return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
@@ -143,7 +150,8 @@ class Orders(ViewSet):
             current_user = Customer.objects.get(user=request.auth.user)
 
             try:
-                open_order = Order.objects.get(customer=current_user, payment_type=None)
+                open_order = Order.objects.get(
+                    customer=current_user, payment_type=None)
             except Order.DoesNotExist as ex:
                 open_order = Order()
                 open_order.created_date = datetime.datetime.now()
@@ -151,7 +159,8 @@ class Orders(ViewSet):
                 open_order.save()
 
             line_item = OrderProduct()
-            line_item.product = Product.objects.get(pk=request.data["product_id"])
+            line_item.product = Product.objects.get(
+                pk=request.data["product_id"])
             line_item.order = open_order
             line_item.save()
 
