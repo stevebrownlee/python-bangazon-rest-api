@@ -14,8 +14,9 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 # POST and DELETE entries.
 # Methods: GET PUT(id) POST DELETE
 
+
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for park areas
+    """JSON serializer for products
 
     Arguments:
         serializers
@@ -26,13 +27,15 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
             view_name='product',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'name', 'price', 'description', 'quantity', 'created_date', 'location', 'image_path', 'product_category')
+        fields = ('id', 'url', 'name', 'price', 'number_sold', 'description',
+                  'quantity', 'created_date', 'location', 'image_path', 'product_category')
         depth = 1
 
 
 class Products(ViewSet):
-    """Park Areas for Kennywood Amusement Park"""
+    """Request handlers for Products in the Bangazon Platform"""
     permission_classes = (IsAuthenticatedOrReadOnly,)
+
     def create(self, request):
         """Handle POST operations
 
@@ -50,12 +53,14 @@ class Products(ViewSet):
         customer = Customer.objects.get(user=request.auth.user)
         new_product.customer = customer
 
-        product_category = ProductCategory.objects.get(pk=request.data["product_category_id"])
+        product_category = ProductCategory.objects.get(
+            pk=request.data["product_category_id"])
         new_product.product_category = product_category
 
         new_product.save()
 
-        serializer = ProductSerializer(new_product, context={'request': request})
+        serializer = ProductSerializer(
+            new_product, context={'request': request})
 
         return Response(serializer.data)
 
@@ -67,7 +72,8 @@ class Products(ViewSet):
         """
         try:
             product = Product.objects.get(pk=pk)
-            serializer = ProductSerializer(product, context={'request': request})
+            serializer = ProductSerializer(
+                product, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -92,7 +98,8 @@ class Products(ViewSet):
         image = Image.objects.get(pk=request.data["image_id"])
         product.image = image
 
-        product_category = ProductCategory.objects.get(pk=request.data["product_category_id"])
+        product_category = ProductCategory.objects.get(
+            pk=request.data["product_category_id"])
         product.product_category = product_category
         product.save()
 
@@ -130,15 +137,16 @@ class Products(ViewSet):
         location = self.request.query_params.get('location', None)
         order = self.request.query_params.get('order_by', None)
         direction = self.request.query_params.get('direction', None)
+        number_sold = self.request.query_params.get('number_sold', None)
 
         if order is not None:
-            filter = order
+            order_filter = order
 
             if direction is not None:
                 if direction == "desc":
-                    filter = f'-{order}'
+                    order_filter = f'-{order}'
 
-            products = products.order_by(filter)
+            products = products.order_by(order_filter)
 
         if location is not None:
             products = products.filter(location__contains=location)
@@ -148,6 +156,14 @@ class Products(ViewSet):
 
         if quantity is not None:
             products = products.order_by("-created_date")[:int(quantity)]
+
+        if number_sold is not None:
+            def sold_filter(product):
+                if product.number_sold >= int(number_sold):
+                    return True
+                return False
+
+            products = filter(sold_filter, products)
 
         serializer = ProductSerializer(
             products, many=True, context={'request': request})

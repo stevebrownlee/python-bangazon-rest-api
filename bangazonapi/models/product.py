@@ -2,6 +2,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from .customer import Customer
 from .productcategory import ProductCategory
+from .orderproduct import OrderProduct
 from safedelete.models import SafeDeleteModel
 from safedelete.models import SOFT_DELETE
 
@@ -18,6 +19,10 @@ class Product(SafeDeleteModel):
     location = models.CharField(max_length=50,)
     image_path = models.ImageField(upload_to='product_imgs/', height_field=None, width_field=None, max_length=None, null=True)
 
+    @property
+    def number_sold(self):
+        sold = OrderProduct.objects.filter(product=self, order__payment_type__isnull=False)
+        return sold.count()
 
     class Meta:
         verbose_name = ("product")
