@@ -12,6 +12,7 @@ router.register(r'orderproducts', OrderProducts, 'orderproduct')
 router.register(r'customers', Customers, 'customer')
 router.register(r'users', Users, 'user')
 router.register(r'orders', Orders, 'order')
+router.register(r'cart', Cart, 'cart')
 router.register(r'paymenttypes', Payments, 'payment')
 
 

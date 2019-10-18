@@ -9,12 +9,6 @@ from rest_framework.decorators import action
 from bangazonapi.models import Order, Payment, Customer, Product, OrderProduct
 from .product import ProductSerializer
 
-'''
-auther: Tyler Carpenter
-purpose: Allow a user to communicate with the Bangazon database to GET PUT POST and DELETE entries.
-methods: all
-'''
-
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for order
@@ -115,16 +109,27 @@ class Orders(ViewSet):
             orders, many=True, context={'request': request})
         return Response(serializer.data)
 
-    @action(methods=['get', 'put'], detail=False)
+    @action(methods=['get', 'put', 'delete'], detail=False)
     def cart(self, request):
         """Shopping cart route for customers
 
         Returns:
             Response -- An HTTP response
         """
-        if request.method == "GET":
-            current_user = Customer.objects.get(user=request.auth.user)
+        current_user = Customer.objects.get(user=request.auth.user)
 
+        if request.method == "DELETE":
+            open_order = Order.objects.get(
+                customer=current_user, payment_type=None)
+            line_item = OrderProduct.objects.filter(
+                product__id=int(request.data["product_id"]),
+                order=open_order
+            )[0]
+            line_item.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        if request.method == "GET":
             try:
                 open_order = Order.objects.get(
                     customer=current_user, payment_type=None)
@@ -140,6 +145,7 @@ class Orders(ViewSet):
                     "order": serialized_order.data
                 }
                 final["order"]["products"] = product_list.data
+                final["order"]["size"] = len(products_on_order)
 
             except Order.DoesNotExist as ex:
                 return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
@@ -147,8 +153,6 @@ class Orders(ViewSet):
             return Response(final)
 
         if request.method == "PUT":
-            current_user = Customer.objects.get(user=request.auth.user)
-
             try:
                 open_order = Order.objects.get(
                     customer=current_user, payment_type=None)
