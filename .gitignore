@@ -8,6 +8,5 @@ obj
 *.sqlite3
 .vscode
 dist
-bangazon-api-env
 migrations
-winterapi
+bangazonenv
