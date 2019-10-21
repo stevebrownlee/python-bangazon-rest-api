@@ -4,15 +4,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from bangazonapi.models import Product
-from bangazonapi.models import Customer
-from bangazonapi.models import ProductCategory
+from bangazonapi.models import Product, Customer, ProductCategory
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-
-# Author: Danny Barker
-# Purpose: Allow a user to communicate with the Bangazon database to GET PUT
-# POST and DELETE entries.
-# Methods: GET PUT(id) POST DELETE
 
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
@@ -28,7 +21,8 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field='id'
         )
         fields = ('id', 'url', 'name', 'price', 'number_sold', 'description',
-                  'quantity', 'created_date', 'location', 'image_path', 'product_category')
+                  'quantity', 'created_date', 'location', 'image_path',
+                  'average_rating', 'can_be_rated', 'product_category',)
         depth = 1
 
 
@@ -70,13 +64,13 @@ class Products(ViewSet):
         Returns:
             Response -- JSON serialized park area instance
         """
-        try:
-            product = Product.objects.get(pk=pk)
-            serializer = ProductSerializer(
-                product, context={'request': request})
-            return Response(serializer.data)
-        except Exception as ex:
-            return HttpResponseServerError(ex)
+        # try:
+        product = Product.objects.get(pk=pk)
+        serializer = ProductSerializer(
+            product, context={'request': request})
+        return Response(serializer.data)
+        # except Exception as ex:
+        #     return HttpResponseServerError(ex)
 
     def update(self, request, pk=None):
         """Handle PUT requests for a park area attraction

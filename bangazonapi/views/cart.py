@@ -15,7 +15,7 @@ class Cart(ViewSet):
     """Shopping cart for Bangazon eCommerce"""
 
     def create(self, request):
-        """Handle PUT requests for a park area
+        """Handle POST requests to add an item to the cart
 
         Returns:
             Response -- Empty body with 204 status code
@@ -24,7 +24,7 @@ class Cart(ViewSet):
 
         try:
             open_order = Order.objects.get(
-                customer=current_user, payment_type=None)
+                customer=current_user, payment_type__isnull=True)
         except Order.DoesNotExist as ex:
             open_order = Order()
             open_order.created_date = datetime.datetime.now()
@@ -32,8 +32,7 @@ class Cart(ViewSet):
             open_order.save()
 
         line_item = OrderProduct()
-        line_item.product = Product.objects.get(
-            pk=request.data["product_id"])
+        line_item.product = Product.objects.get(pk=request.data["product_id"])
         line_item.order = open_order
         line_item.save()
 
@@ -41,7 +40,7 @@ class Cart(ViewSet):
 
 
     def destroy(self, request, pk=None):
-        """Handle DELETE requests for a single park are
+        """Handle DELETE requests to remove items from cart
 
         Returns:
             Response -- 200, 404, or 500 status code
@@ -49,8 +48,9 @@ class Cart(ViewSet):
         current_user = Customer.objects.get(user=request.auth.user)
         open_order = Order.objects.get(
             customer=current_user, payment_type=None)
+
         line_item = OrderProduct.objects.filter(
-            product__id=int(request.data["product_id"]),
+            product__id=pk,
             order=open_order
         )[0]
         line_item.delete()
@@ -59,21 +59,23 @@ class Cart(ViewSet):
 
 
     def list(self, request):
-        """Handle GET requests to park areas resource
+        """Handle GET requests to get products on order
 
         Returns:
-            Response -- JSON serialized list of park areas
+            Response -- JSON serialized list of products
         """
         current_user = Customer.objects.get(user=request.auth.user)
 
         try:
             open_order = Order.objects.get(
                 customer=current_user, payment_type=None)
+
             products_on_order = Product.objects.filter(
                 cart__order=open_order)
 
             serialized_order = OrderSerializer(
                 open_order, many=False, context={'request': request})
+
             product_list = ProductSerializer(
                 products_on_order, many=True, context={'request': request})
 
@@ -86,4 +88,4 @@ class Cart(ViewSet):
         except Order.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
-        return Response(final.values())
+        return Response(final["order"])

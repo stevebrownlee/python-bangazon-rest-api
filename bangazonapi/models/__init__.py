@@ -7,3 +7,4 @@ from .productcategory import ProductCategory
 from .recommendation import Recommendation
 from .rating import Rating
 from .favorite import Favorite
+from .productrating import ProductRating

@@ -54,5 +54,29 @@
             "order_id": 2,
             "product_id": 71
         }
+    },
+    {
+        "model": "bangazonapi.orderproduct",
+        "pk": 7,
+        "fields": {
+            "order_id": 3,
+            "product_id": 50
+        }
+    },
+    {
+        "model": "bangazonapi.orderproduct",
+        "pk": 8,
+        "fields": {
+            "order_id": 3,
+            "product_id": 50
+        }
+    },
+    {
+        "model": "bangazonapi.orderproduct",
+        "pk": 9,
+        "fields": {
+            "order_id": 3,
+            "product_id": 45
+        }
     }
 ]

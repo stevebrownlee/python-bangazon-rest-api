@@ -3,6 +3,7 @@ from django.db import models
 from .customer import Customer
 from .productcategory import ProductCategory
 from .orderproduct import OrderProduct
+from .productrating import ProductRating
 from safedelete.models import SafeDeleteModel
 from safedelete.models import SOFT_DELETE
 
@@ -23,6 +24,28 @@ class Product(SafeDeleteModel):
     def number_sold(self):
         sold = OrderProduct.objects.filter(product=self, order__payment_type__isnull=False)
         return sold.count()
+
+    @property
+    def can_be_rated(self):
+        return self.__can_be_rated
+
+    @can_be_rated.setter
+    def can_be_rated(self, value):
+        self.__can_be_rated = value
+
+
+    @property
+    def average_rating(self):
+        ratings = ProductRating.objects.filter(product=self)
+        total_rating = 0
+        for rating in ratings:
+            total_rating += rating.rating
+
+        try:
+            avg = total_rating / len(ratings)
+        except ZeroDivisionError as nonono:
+            avg = 0
+        return avg
 
     class Meta:
         verbose_name = ("product")
