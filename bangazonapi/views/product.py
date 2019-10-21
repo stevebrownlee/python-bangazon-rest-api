@@ -22,7 +22,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         )
         fields = ('id', 'url', 'name', 'price', 'number_sold', 'description',
                   'quantity', 'created_date', 'location', 'image_path',
-                  'average_rating', 'can_be_rated', 'product_category',)
+                  'average_rating', 'can_be_rated', 'category',)
         depth = 1
 
 
@@ -48,8 +48,8 @@ class Products(ViewSet):
         new_product.customer = customer
 
         product_category = ProductCategory.objects.get(
-            pk=request.data["product_category_id"])
-        new_product.product_category = product_category
+            pk=request.data["category_id"])
+        new_product.category = product_category
 
         new_product.save()
 
@@ -93,8 +93,8 @@ class Products(ViewSet):
         product.image = image
 
         product_category = ProductCategory.objects.get(
-            pk=request.data["product_category_id"])
-        product.product_category = product_category
+            pk=request.data["category_id"])
+        product.category = product_category
         product.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
@@ -146,7 +146,7 @@ class Products(ViewSet):
             products = products.filter(location__contains=location)
 
         if category is not None:
-            products = products.filter(product_category__id=category)
+            products = products.filter(category__id=category)
 
         if quantity is not None:
             products = products.order_by("-created_date")[:int(quantity)]

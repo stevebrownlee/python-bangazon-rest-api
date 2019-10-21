@@ -4,6 +4,7 @@ from .order import Orders
 from .paymenttype import Payments
 from .product import Products
 from .cart import Cart
+from .profile import Profile
 from .productcategory import ProductCategories
 from .orderproduct import OrderProducts
 from .customer import Customers
