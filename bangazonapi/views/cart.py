@@ -15,10 +15,14 @@ class Cart(ViewSet):
     """Shopping cart for Bangazon eCommerce"""
 
     def create(self, request):
-        """Handle POST requests to add an item to the cart
+        """
+        @api {POST} /cart POST new line items to cart
+        @apiName AddLineItem
+        @apiGroup ShoppingCart
 
-        Returns:
-            Response -- Empty body with 204 status code
+        @apiSuccessExample {json} Success
+            HTTP/1.1 204 No Content
+        @apiParam {Number} product_id Id of product to add
         """
         current_user = Customer.objects.get(user=request.auth.user)
 
@@ -40,10 +44,14 @@ class Cart(ViewSet):
 
 
     def destroy(self, request, pk=None):
-        """Handle DELETE requests to remove items from cart
+        """
+        @api {DELETE} /cart/:id DELETE line item from cart
+        @apiName RemoveLineItem
+        @apiGroup ShoppingCart
 
-        Returns:
-            Response -- 200, 404, or 500 status code
+        @apiParam {id} id Product Id to remove from cart
+        @apiSuccessExample {json} Success
+            HTTP/1.1 204 No Content
         """
         current_user = Customer.objects.get(user=request.auth.user)
         open_order = Order.objects.get(
@@ -59,19 +67,56 @@ class Cart(ViewSet):
 
 
     def list(self, request):
-        """Handle GET requests to get products on order
+        """
+        @api {GET} /cart GET line items in cart
+        @apiName GetCart
+        @apiGroup ShoppingCart
 
-        Returns:
-            Response -- JSON serialized list of products
+        @apiSuccess (200) {Number} id Order cart
+        @apiSuccess (200) {String} url URL of order
+        @apiSuccess (200) {String} created_date Date created
+        @apiSuccess (200) {Object} payment_type Payment id use to complete order
+        @apiSuccess (200) {String} customer URI for customer
+        @apiSuccess (200) {Number} size Number of items in cart
+        @apiSuccess (200) {Object[]} line_items Line items in cart
+        @apiSuccess (200) {Number} line_items.id Line item id
+        @apiSuccess (200) {Object} line_items.product Product in cart
+        @apiSuccessExample {json} Success
+            {
+                "id": 2,
+                "url": "http://localhost:8000/orders/2",
+                "created_date": "2019-04-12",
+                "payment_type": null,
+                "customer": "http://localhost:8000/customers/7",
+                "products": [
+                    {
+                        "id": 52,
+                        "url": "http://localhost:8000/products/52",
+                        "name": "900",
+                        "price": 1296.98,
+                        "number_sold": 0,
+                        "description": "1987 Saab",
+                        "quantity": 2,
+                        "created_date": "2019-03-19",
+                        "location": "Vratsa",
+                        "image_path": null,
+                        "average_rating": 0,
+                        "category": {
+                            "url": "http://localhost:8000/productcategories/2",
+                            "name": "Auto"
+                        }
+                    }
+                ],
+                "size": 1
+            }
         """
         current_user = Customer.objects.get(user=request.auth.user)
-
         try:
             open_order = Order.objects.get(
                 customer=current_user, payment_type=None)
 
             products_on_order = Product.objects.filter(
-                cart__order=open_order)
+                line_items__order=open_order)
 
             serialized_order = OrderSerializer(
                 open_order, many=False, context={'request': request})

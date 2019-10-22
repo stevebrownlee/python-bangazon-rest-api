@@ -11,11 +11,7 @@ from .product import ProductSerializer
 
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for order
-
-    Arguments:
-        serializers
-    """
+    """JSON serializer for customer orders"""
 
     class Meta:
         model = Order
@@ -27,145 +23,139 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class Orders(ViewSet):
-    """Park Areas for Kennywood Amusement Park"""
+    """View for interacting with customer orders"""
 
     def create(self, request):
-        """Handle POST operations
-
-        Returns:
-            Response -- JSON serialized ParkArea instance
         """
-        neworder = Order()
-        neworder.created_date = request.data["created_date"]
-        customer = Customer.objects.get(id=request.data["customer_id"])
-        neworder.customer = customer
-        neworder.save()
+        @api {DELETE} /cart/:id DELETE line item from cart
+        @apiName RemoveLineItem
+        @apiGroup ShoppingCart
 
-        serializer = OrderSerializer(neworder, context={'request': request})
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {id} id Product Id to remove from cart
+        @apiSuccessExample {json} Success
+            HTTP/1.1 204 No Content
+        """
+        customer = Customer.objects.get(user=request.auth.user)
+
+        order = Order()
+        order.created_date = datetime.datetime.now
+        order.customer = customer
+        order.save()
+
+        serializer = OrderSerializer(order, context={'request': request})
 
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for order
+        """
+        @api {GET} /cart/:id GET single order
+        @apiName GetOrder
+        @apiGroup Orders
 
-        Returns:
-            Response -- JSON serialized order
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+
+        @apiSuccess (200) {id} id Order id
+        @apiSuccess (200) {String} url Order URI
+        @apiSuccess (200) {String} created_date Date order was created
+        @apiSuccess (200) {String} payment_type Payment URI
+        @apiSuccess (200) {String} customer Customer URI
+
+        @apiSuccessExample {json} Success
+            {
+                "id": 1,
+                "url": "http://localhost:8000/orders/1",
+                "created_date": "2019-08-16",
+                "payment_type": "http://localhost:8000/paymenttypes/1",
+                "customer": "http://localhost:8000/customers/5"
+            }
         """
         try:
-            order = Order.objects.get(pk=pk)
+            customer = Customer.objects.get(user=request.auth.user)
+            order = Order.objects.get(pk=pk, customer=customer)
             serializer = OrderSerializer(order, context={'request': request})
             return Response(serializer.data)
+
+        except Order.DoesNotExist as ex:
+            return Response(
+                {'message': 'The requested order does not exist, or you do not have permission to access it.'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
         except Exception as ex:
             return HttpResponseServerError(ex)
 
     def update(self, request, pk=None):
-        """Handle PUT requests for a park area
-
-        Returns:
-            Response -- Empty body with 204 status code
         """
-        order = Order.objects.get(pk=pk)
+        @api {PUT} /order/:id PUT new payment for order
+        @apiName AddPayment
+        @apiGroup Orders
+
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {id} id Order Id route parameter
+        @apiParam {id} payment_type Payment Id to pay for the order
+        @apiParamExample {json} Input
+            {
+                "payment_type": 6
+            }
+
+        @apiSuccessExample {json} Success
+            HTTP/1.1 204 No Content
+        """
+        customer = Customer.objects.get(user=request.auth.user)
+        order = Order.objects.get(pk=pk, customer=customer)
         order.payment_type = request.data["payment_type"]
         order.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
-    def destroy(self, request, pk=None):
-        """Handle DELETE requests for a single park are
-
-        Returns:
-            Response -- 200, 404, or 500 status code
-        """
-        try:
-            order = Order.objects.get(pk=pk)
-            order.delete()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
-
-        except Order.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
-        except Exception as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
     def list(self, request):
-        """Handle GET requests to park areas resource
-
-        Returns:
-            Response -- JSON serialized list of park areas
         """
-        orders = Order.objects.all()
+        @api {GET} /orders GET customer orders
+        @apiName GetOrders
+        @apiGroup Orders
 
-        customer = self.request.query_params.get('customer_id', None)
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {id} payment_id Query param to filter by payment used
+
+        @apiSuccess (200) {Object[]} orders Array of order objects
+        @apiSuccess (200) {id} orders.id Order id
+        @apiSuccess (200) {String} orders.url Order URI
+        @apiSuccess (200) {String} orders.created_date Date order was created
+        @apiSuccess (200) {String} orders.payment_type Payment URI
+        @apiSuccess (200) {String} orders.customer Customer URI
+
+        @apiSuccessExample {json} Success
+            [
+                {
+                    "id": 1,
+                    "url": "http://localhost:8000/orders/1",
+                    "created_date": "2019-08-16",
+                    "payment_type": "http://localhost:8000/paymenttypes/1",
+                    "customer": "http://localhost:8000/customers/5"
+                }
+            ]
+        """
+        customer = Customer.objects.get(user=request.auth.user)
+        orders = Order.objects.filter(customer=customer)
+
         payment = self.request.query_params.get('payment_id', None)
-        if customer is not None:
-            orders = orders.filter(customer__id=customer)
-            if payment is None:
-                orders = orders.filter(payment_type__id=None)
         if payment is not None:
             orders = orders.filter(payment__id=payment)
 
-        serializer = OrderSerializer(
+        json_orders = OrderSerializer(
             orders, many=True, context={'request': request})
-        return Response(serializer.data)
 
-    @action(methods=['get', 'put', 'delete'], detail=False)
-    def cart(self, request):
-        """Shopping cart route for customers
-
-        Returns:
-            Response -- An HTTP response
-        """
-        current_user = Customer.objects.get(user=request.auth.user)
-
-        if request.method == "DELETE":
-            open_order = Order.objects.get(
-                customer=current_user, payment_type=None)
-            line_item = OrderProduct.objects.filter(
-                product__id=int(request.data["product_id"]),
-                order=open_order
-            )[0]
-            line_item.delete()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
-
-        if request.method == "GET":
-            try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
-                products_on_order = Product.objects.filter(
-                    cart__order=open_order)
-
-                serialized_order = OrderSerializer(
-                    open_order, many=False, context={'request': request})
-                product_list = ProductSerializer(
-                    products_on_order, many=True, context={'request': request})
-
-                final = {
-                    "order": serialized_order.data
-                }
-                final["order"]["products"] = product_list.data
-                final["order"]["size"] = len(products_on_order)
-
-            except Order.DoesNotExist as ex:
-                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
-            return Response(final)
-
-        if request.method == "PUT":
-            try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
-            except Order.DoesNotExist as ex:
-                open_order = Order()
-                open_order.created_date = datetime.datetime.now()
-                open_order.customer = current_user
-                open_order.save()
-
-            line_item = OrderProduct()
-            line_item.product = Product.objects.get(
-                pk=request.data["product_id"])
-            line_item.order = open_order
-            line_item.save()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
+        return Response(json_orders.data)

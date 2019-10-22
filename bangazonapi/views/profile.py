@@ -7,7 +7,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from bangazonapi.models import Order, Customer, Product, OrderProduct
+from bangazonapi.models import Order, Customer, Product, OrderProduct, Favorite
 from .product import ProductSerializer
 from .order import OrderSerializer
 
@@ -21,6 +21,9 @@ class Profile(ViewSet):
         @apiName GetProfile
         @apiGroup UserProfile
 
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
 
         @apiSuccess (200) {Number} id Profile id
         @apiSuccess (200) {String} url URI of customer profile
@@ -70,9 +73,13 @@ class Profile(ViewSet):
 
         if request.method == "DELETE":
             """
-            @api {DELETE} /cart DELETE all line items in cart
+            @api {DELETE} /profile/cart DELETE all line items in cart
             @apiName DeleteCart
             @apiGroup UserProfile
+
+            @apiHeader {String} Authorization Auth token
+            @apiHeaderExample {String} Authorization
+                Token 9ba45f09651c5b0c404f37a2d2572c026c146611
 
             @apiSuccessExample {json} Success
                 HTTP/1.1 204 No Content
@@ -90,14 +97,18 @@ class Profile(ViewSet):
 
         if request.method == "GET":
             """
-            @api {GET} /cart GET line items in cart
+            @api {GET} /profile/cart GET line items in cart
             @apiName GetCart
             @apiGroup UserProfile
+
+            @apiHeader {String} Authorization Auth token
+            @apiHeaderExample {String} Authorization
+                Token 9ba45f09651c5b0c404f37a2d2572c026c146611
 
             @apiSuccess (200) {Number} id Order cart
             @apiSuccess (200) {String} url URL of order
             @apiSuccess (200) {String} created_date Date created
-            @apiSuccess (200) {Object} payment_type Line items in cart
+            @apiSuccess (200) {Object} payment_type Payment Id used to complete order
             @apiSuccess (200) {String} customer URI for customer
             @apiSuccess (200) {Number} size Number of items in cart
             @apiSuccess (200) {Object[]} line_items Line items in cart
@@ -154,9 +165,13 @@ class Profile(ViewSet):
 
         if request.method == "POST":
             """
-            @api {POST} /cart POST new product to cart
+            @api {POST} /profile/cart POST new product to cart
             @apiName AddToCart
             @apiGroup UserProfile
+
+            @apiHeader {String} Authorization Auth token
+            @apiHeaderExample {String} Authorization
+                Token 9ba45f09651c5b0c404f37a2d2572c026c146611
 
             @apiSuccess (200) {Object} line_item Line items in cart
             @apiSuccess (200) {Number} line_item.id Line item id
@@ -206,6 +221,60 @@ class Profile(ViewSet):
 
             return Response(line_item_json.data)
 
+    @action(methods=['get'], detail=False)
+    def favoritesellers(self, request):
+        """
+        @api {GET} /profile/favoritesellers GET favorite sellers
+        @apiName GetFavoriteSellers
+        @apiGroup UserProfile
+
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiSuccess (200) {id} id Favorite id
+        @apiSuccess (200) {Object} seller Favorited seller
+        @apiSuccess (200) {String} seller.url Seller URI
+        @apiSuccess (200) {String} seller.phone_number Seller phone number
+        @apiSuccess (200) {String} seller.address Seller address
+        @apiSuccess (200) {String} seller.user Seller user profile URI
+        @apiSuccessExample {json} Success
+            [
+                {
+                    "id": 1,
+                    "seller": {
+                        "url": "http://localhost:8000/customers/5",
+                        "phone_number": "555-1212",
+                        "address": "100 Endless Way",
+                        "user": "http://localhost:8000/users/6"
+                    }
+                },
+                {
+                    "id": 2,
+                    "seller": {
+                        "url": "http://localhost:8000/customers/6",
+                        "phone_number": "555-1212",
+                        "address": "100 Dauntless Way",
+                        "user": "http://localhost:8000/users/7"
+                    }
+                },
+                {
+                    "id": 3,
+                    "seller": {
+                        "url": "http://localhost:8000/customers/7",
+                        "phone_number": "555-1212",
+                        "address": "100 Indefatiguable Way",
+                        "user": "http://localhost:8000/users/8"
+                    }
+                }
+            ]
+        """
+        customer = Customer.objects.get(user=request.auth.user)
+        favorites = Favorite.objects.filter(customer=customer)
+
+        serializer = FavoriteSerializer(
+            favorites, many=True, context={'request': request})
+        return Response(serializer.data)
 
 
 class LineItemSerializer(serializers.HyperlinkedModelSerializer):
@@ -248,3 +317,17 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         )
         fields = ('id', 'url', 'user', 'phone_number', 'address', 'payment_types')
         depth = 1
+
+
+class FavoriteSerializer(serializers.HyperlinkedModelSerializer):
+    """JSON serializer for favorites
+
+    Arguments:
+        serializers
+    """
+
+    class Meta:
+        model = Favorite
+        fields = ('id', 'seller')
+        depth = 1
+
