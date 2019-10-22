@@ -7,25 +7,217 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from .order import OrderSerializer
-from .product import ProductSerializer
 from bangazonapi.models import Order, Customer, Product, OrderProduct
+from .product import ProductSerializer
+from .order import OrderSerializer
+
+class Profile(ViewSet):
+    """Request handlers for user profile info in the Bangazon Platform"""
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def list(self, request):
+        """
+        @api {GET} /profile GET user profile info
+        @apiName GetProfile
+        @apiGroup UserProfile
 
 
-class CartProductSerializer(serializers.HyperlinkedModelSerializer):
+        @apiSuccess (200) {Number} id Profile id
+        @apiSuccess (200) {String} url URI of customer profile
+        @apiSuccess (200) {Object} user Related user object
+        @apiSuccess (200) {String} user.first_name Customer first name
+        @apiSuccess (200) {String} user.last_name Customer last name
+        @apiSuccess (200) {String} user.email Customer email
+        @apiSuccess (200) {String} phone_number Customer phone number
+        @apiSuccess (200) {String} address Customer address
+        @apiSuccess (200) {Object[]} payment_types Array of user's payment types
+
+        @apiSuccessExample {json} Success
+            HTTP/1.1 200 OK
+            {
+                "id": 7,
+                "url": "http://localhost:8000/customers/7",
+                "user": {
+                    "first_name": "Brenda",
+                    "last_name": "Long",
+                    "email": "brenda@brendalong.com"
+                },
+                "phone_number": "555-1212",
+                "address": "100 Indefatiguable Way",
+                "payment_types": [
+                    {
+                        "url": "http://localhost:8000/paymenttypes/3",
+                        "deleted": null,
+                        "merchant_name": "Visa",
+                        "account_number": "fj0398fjw0g89434",
+                        "expiration_date": "2020-03-01",
+                        "create_date": "2019-03-11",
+                        "customer": "http://localhost:8000/customers/7"
+                    }
+                ]
+            }
+        """
+        try:
+            current_user = Customer.objects.get(user=request.auth.user)
+            serializer = ProfileSerializer(current_user, many=False, context={'request': request})
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)
+
+    @action(methods=['get', 'post', 'delete'], detail=False)
+    def cart(self, request):
+        current_user = Customer.objects.get(user=request.auth.user)
+
+        if request.method == "DELETE":
+            """
+            @api {DELETE} /cart DELETE all line items in cart
+            @apiName DeleteCart
+            @apiGroup UserProfile
+
+            @apiSuccessExample {json} Success
+                HTTP/1.1 204 No Content
+            @apiError (404) {String} message  Not found message.
+            """
+            try:
+                open_order = Order.objects.get(customer=current_user, payment_type=None)
+                line_items = OrderProduct.objects.filter(order=open_order)
+                line_items.delete()
+                open_order.delete()
+            except Order.DoesNotExist as ex:
+                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+        if request.method == "GET":
+            """
+            @api {GET} /cart GET line items in cart
+            @apiName GetCart
+            @apiGroup UserProfile
+
+            @apiSuccess (200) {Number} id Order cart
+            @apiSuccess (200) {String} url URL of order
+            @apiSuccess (200) {String} created_date Date created
+            @apiSuccess (200) {Object} payment_type Line items in cart
+            @apiSuccess (200) {String} customer URI for customer
+            @apiSuccess (200) {Number} size Number of items in cart
+            @apiSuccess (200) {Object[]} line_items Line items in cart
+            @apiSuccess (200) {Number} line_items.id Line item id
+            @apiSuccess (200) {Object} line_items.product Product in cart
+            @apiSuccessExample {json} Success
+                {
+                    "id": 2,
+                    "url": "http://localhost:8000/orders/2",
+                    "created_date": "2019-04-12",
+                    "payment_type": null,
+                    "customer": "http://localhost:8000/customers/7",
+                    "line_items": [
+                        {
+                            "id": 4,
+                            "product": {
+                                "id": 52,
+                                "url": "http://localhost:8000/products/52",
+                                "name": "900",
+                                "price": 1296.98,
+                                "number_sold": 0,
+                                "description": "1987 Saab",
+                                "quantity": 2,
+                                "created_date": "2019-03-19",
+                                "location": "Vratsa",
+                                "image_path": null,
+                                "average_rating": 0,
+                                "category": {
+                                    "url": "http://localhost:8000/productcategories/2",
+                                    "name": "Auto"
+                                }
+                            }
+                        }
+                    ],
+                    "size": 1
+                }
+            @apiError (404) {String} message  Not found message
+            """
+            try:
+                open_order = Order.objects.get(customer=current_user, payment_type=None)
+                line_items = OrderProduct.objects.filter(order=open_order)
+                line_items = LineItemSerializer(line_items, many=True, context={'request': request})
+
+                cart = {}
+                cart["order"] = OrderSerializer(open_order, many=False, context={'request': request}).data
+                cart["order"]["line_items"] = line_items.data
+                cart["order"]["size"] = len(line_items.data)
+
+
+            except Order.DoesNotExist as ex:
+                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+            return Response(cart["order"])
+
+        if request.method == "POST":
+            """
+            @api {POST} /cart POST new product to cart
+            @apiName AddToCart
+            @apiGroup UserProfile
+
+            @apiSuccess (200) {Object} line_item Line items in cart
+            @apiSuccess (200) {Number} line_item.id Line item id
+            @apiSuccess (200) {Object} line_item.product Product in cart
+            @apiSuccess (200) {Object} line_item.order Open order for cart
+            @apiSuccessExample {json} Success
+                {
+                    "id": 14,
+                    "product": {
+                        "url": "http://localhost:8000/products/52",
+                        "deleted": null,
+                        "name": "900",
+                        "price": 1296.98,
+                        "description": "1987 Saab",
+                        "quantity": 2,
+                        "created_date": "2019-03-19",
+                        "location": "Vratsa",
+                        "image_path": null,
+                        "customer": "http://localhost:8000/customers/7",
+                        "category": "http://localhost:8000/productcategories/2"
+                    },
+                    "order": {
+                        "url": "http://localhost:8000/orders/2",
+                        "created_date": "2019-04-12",
+                        "customer": "http://localhost:8000/customers/7",
+                        "payment_type": null
+                    }
+                }
+
+            @apiError (404) {String} message  Not found message
+            """
+            try:
+                open_order = Order.objects.get(customer=current_user, payment_type=None)
+            except Order.DoesNotExist as ex:
+                open_order = Order()
+                open_order.created_date = datetime.datetime.now()
+                open_order.customer = current_user
+                open_order.save()
+
+            line_item = OrderProduct()
+            line_item.product = Product.objects.get(
+                pk=request.data["product_id"])
+            line_item.order = open_order
+            line_item.save()
+
+            line_item_json = LineItemSerializer(line_item, many=False, context={'request': request})
+
+            return Response(line_item_json.data)
+
+
+
+class LineItemSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for products
 
     Arguments:
         serializers
     """
+    product = ProductSerializer(many=False)
     class Meta:
-        model = Product
-        url = serializers.HyperlinkedIdentityField(
-            view_name='product',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'name', 'price', 'description',
-                  'location', 'category',)
+        model = OrderProduct
+        fields = ('id', 'product')
         depth = 1
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -56,143 +248,3 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         )
         fields = ('id', 'url', 'user', 'phone_number', 'address', 'payment_types')
         depth = 1
-
-
-class Profile(ViewSet):
-    """Request handlers for user profile info in the Bangazon Platform"""
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
-    def list(self, request):
-        """Handle GET requests for a user profile
-
-        Returns:
-            Response -- JSON serialized park area instance
-        """
-        try:
-            current_user = Customer.objects.get(user=request.auth.user)
-            serializer = ProfileSerializer(current_user, many=False, context={'request': request})
-            return Response(serializer.data)
-        except Exception as ex:
-            return HttpResponseServerError(ex)
-
-    @action(methods=['get', 'put', 'delete'], detail=False)
-    def cart(self, request):
-        """Shopping cart route for customers
-
-        Returns:
-            Response -- An HTTP response
-        """
-        current_user = Customer.objects.get(user=request.auth.user)
-
-        if request.method == "DELETE":
-            open_order = Order.objects.get(
-                customer=current_user, payment_type=None)
-            line_item = OrderProduct.objects.filter(
-                product__id=int(request.data["product_id"]),
-                order=open_order
-            )[0]
-            line_item.delete()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
-
-        if request.method == "GET":
-            try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
-                products_on_order = Product.objects.filter(
-                    cart__order=open_order)
-
-                serialized_order = OrderSerializer(
-                    open_order, many=False, context={'request': request})
-                product_list = ProductSerializer(
-                    products_on_order, many=True, context={'request': request})
-
-                final = {
-                    "order": serialized_order.data
-                }
-                final["order"]["products"] = product_list.data
-                final["order"]["size"] = len(products_on_order)
-
-            except Order.DoesNotExist as ex:
-                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
-            return Response(final)
-
-        if request.method == "PUT":
-            try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
-            except Order.DoesNotExist as ex:
-                open_order = Order()
-                open_order.created_date = datetime.datetime.now()
-                open_order.customer = current_user
-                open_order.save()
-
-            line_item = OrderProduct()
-            line_item.product = Product.objects.get(
-                pk=request.data["product_id"])
-            line_item.order = open_order
-            line_item.save()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
-
-    @action(methods=['get', 'put', 'delete'], detail=False)
-    def cart(self, request):
-        """Shopping cart route for customers
-
-        Returns:
-            Response -- An HTTP response
-        """
-        current_user = Customer.objects.get(user=request.auth.user)
-
-        if request.method == "DELETE":
-            open_order = Order.objects.get(
-                customer=current_user, payment_type=None)
-            line_item = OrderProduct.objects.filter(
-                product__id=int(request.data["product_id"]),
-                order=open_order
-            )[0]
-            line_item.delete()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
-
-        if request.method == "GET":
-            try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
-                products_on_order = Product.objects.filter(
-                    cart__order=open_order)
-
-                serialized_order = OrderSerializer(
-                    open_order, many=False, context={'request': request})
-                product_list = CartProductSerializer(
-                    products_on_order, many=True, context={'request': request})
-
-                final = {
-                    "order": serialized_order.data
-                }
-                final["order"]["products"] = product_list.data
-                final["order"]["size"] = len(products_on_order)
-
-            except Order.DoesNotExist as ex:
-                return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-
-            return Response(final["order"])
-
-        if request.method == "PUT":
-            try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
-            except Order.DoesNotExist as ex:
-                open_order = Order()
-                open_order.created_date = datetime.datetime.now()
-                open_order.customer = current_user
-                open_order.save()
-
-            line_item = OrderProduct()
-            line_item.product = Product.objects.get(
-                pk=request.data["product_id"])
-            line_item.order = open_order
-            line_item.save()
-
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
