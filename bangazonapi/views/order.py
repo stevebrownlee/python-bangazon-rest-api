@@ -25,31 +25,6 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 class Orders(ViewSet):
     """View for interacting with customer orders"""
 
-    def create(self, request):
-        """
-        @api {DELETE} /cart/:id DELETE line item from cart
-        @apiName RemoveLineItem
-        @apiGroup ShoppingCart
-
-        @apiHeader {String} Authorization Auth token
-        @apiHeaderExample {String} Authorization
-            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
-
-        @apiParam {id} id Product Id to remove from cart
-        @apiSuccessExample {json} Success
-            HTTP/1.1 204 No Content
-        """
-        customer = Customer.objects.get(user=request.auth.user)
-
-        order = Order()
-        order.created_date = datetime.datetime.now
-        order.customer = customer
-        order.save()
-
-        serializer = OrderSerializer(order, context={'request': request})
-
-        return Response(serializer.data)
-
     def retrieve(self, request, pk=None):
         """
         @api {GET} /cart/:id GET single order

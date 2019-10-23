@@ -32,7 +32,6 @@ class LineItems(ViewSet):
     #   "orderproduct-detail". You may have failed to include the related
     #   model in your API, or incorrectly configured the `lookup_field`
     #   attribute on this field.
-
     queryset = OrderProduct.objects.all()
 
     def retrieve(self, request, pk=None):

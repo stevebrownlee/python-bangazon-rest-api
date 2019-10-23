@@ -1,4 +1,5 @@
 """View module for handling requests about park areas"""
+import datetime
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -9,11 +10,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
-    """JSON serializer for products
-
-    Arguments:
-        serializers
-    """
+    """JSON serializer for products"""
     class Meta:
         model = Product
         url = serializers.HyperlinkedIdentityField(
@@ -31,24 +28,74 @@ class Products(ViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def create(self, request):
-        """Handle POST operations
+        """
+        @api {POST} /products POST new product
+        @apiName CreateProduct
+        @apiGroup Product
 
-        Returns:
-            Response -- JSON serialized Product instance
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {String} name Short form name of product
+        @apiParam {Number} price Cost of product
+        @apiParam {String} description Long form description of product
+        @apiParam {Number} quantity Number of items to sell
+        @apiParam {String} location City where product is located
+        @apiParam {Number} category_id Category of product
+        @apiParamExample {json} Input
+            {
+                "name": "Kite",
+                "price": 14.99,
+                "description": "It flies high",
+                "quantity": 60,
+                "location": "Pittsburgh",
+                "category_id": 4
+            }
+
+        @apiSuccess (200) {Object} product Created product
+        @apiSuccess (200) {id} product.id Product Id
+        @apiSuccess (200) {String} product.name Short form name of product
+        @apiSuccess (200) {String} product.description Long form description of product
+        @apiSuccess (200) {Number} product.price Cost of product
+        @apiSuccess (200) {Number} product.quantity Number of items to sell
+        @apiSuccess (200) {Date} product.created_date City where product is located
+        @apiSuccess (200) {String} product.location City where product is located
+        @apiSuccess (200) {String} product.image_path Path to product image
+        @apiSuccess (200) {Number} product.average_rating Average customer rating of product
+        @apiSuccess (200) {Number} product.number_sold How many items have been purchased
+        @apiSuccess (200) {Object} product.category Category of product
+        @apiSuccessExample {json} Success
+            {
+                "id": 101,
+                "url": "http://localhost:8000/products/101",
+                "name": "Kite",
+                "price": 14.99,
+                "number_sold": 0,
+                "description": "It flies high",
+                "quantity": 60,
+                "created_date": "2019-10-23",
+                "location": "Pittsburgh",
+                "image_path": null,
+                "average_rating": 0,
+                "category": {
+                    "url": "http://localhost:8000/productcategories/6",
+                    "name": "Games/Toys"
+                }
+            }
         """
         new_product = Product()
         new_product.name = request.data["name"]
         new_product.price = request.data["price"]
         new_product.description = request.data["description"]
         new_product.quantity = request.data["quantity"]
-        new_product.created_date = request.data["created_date"]
         new_product.location = request.data["location"]
+        new_product.image_path = ""
 
         customer = Customer.objects.get(user=request.auth.user)
         new_product.customer = customer
 
-        product_category = ProductCategory.objects.get(
-            pk=request.data["category_id"])
+        product_category = ProductCategory.objects.get(pk=request.data["category_id"])
         new_product.category = product_category
 
         new_product.save()
@@ -59,24 +106,64 @@ class Products(ViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for single park area
-
-        Returns:
-            Response -- JSON serialized park area instance
         """
-        # try:
-        product = Product.objects.get(pk=pk)
-        serializer = ProductSerializer(
-            product, context={'request': request})
-        return Response(serializer.data)
-        # except Exception as ex:
-        #     return HttpResponseServerError(ex)
+        @api {GET} /products/:id GET product
+        @apiName GetProduct
+        @apiGroup Product
+
+        @apiParam {id} id Product Id
+
+        @apiSuccess (200) {Object} product Created product
+        @apiSuccess (200) {id} product.id Product Id
+        @apiSuccess (200) {String} product.name Short form name of product
+        @apiSuccess (200) {String} product.description Long form description of product
+        @apiSuccess (200) {Number} product.price Cost of product
+        @apiSuccess (200) {Number} product.quantity Number of items to sell
+        @apiSuccess (200) {Date} product.created_date City where product is located
+        @apiSuccess (200) {String} product.location City where product is located
+        @apiSuccess (200) {String} product.image_path Path to product image
+        @apiSuccess (200) {Number} product.average_rating Average customer rating of product
+        @apiSuccess (200) {Number} product.number_sold How many items have been purchased
+        @apiSuccess (200) {Object} product.category Category of product
+        @apiSuccessExample {json} Success
+            {
+                "id": 101,
+                "url": "http://localhost:8000/products/101",
+                "name": "Kite",
+                "price": 14.99,
+                "number_sold": 0,
+                "description": "It flies high",
+                "quantity": 60,
+                "created_date": "2019-10-23",
+                "location": "Pittsburgh",
+                "image_path": null,
+                "average_rating": 0,
+                "category": {
+                    "url": "http://localhost:8000/productcategories/6",
+                    "name": "Games/Toys"
+                }
+            }
+        """
+        try:
+            product = Product.objects.get(pk=pk)
+            serializer = ProductSerializer(product, context={'request': request})
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)
 
     def update(self, request, pk=None):
-        """Handle PUT requests for a park area attraction
+        """
+        @api {PUT} /products/:id PUT changes to product
+        @apiName UpdateProduct
+        @apiGroup Product
 
-        Returns:
-            Response -- Empty body with 204 status code
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {id} id Product Id to update
+        @apiSuccessExample {json} Success
+            HTTP/1.1 204 No Content
         """
         product = Product.objects.get(pk=pk)
         product.name = request.data["name"]
@@ -89,21 +176,25 @@ class Products(ViewSet):
         customer = Customer.objects.get(user=request.auth.user)
         product.customer = customer
 
-        image = Image.objects.get(pk=request.data["image_id"])
-        product.image = image
-
-        product_category = ProductCategory.objects.get(
-            pk=request.data["category_id"])
+        product_category = ProductCategory.objects.get(pk=request.data["category_id"])
         product.category = product_category
         product.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk=None):
-        """Handle DELETE requests for a single park are
+        """
+        @api {DELETE} /products/:id DELETE product
+        @apiName DeleteProduct
+        @apiGroup Product
 
-        Returns:
-            Response -- 200, 404, or 500 status code
+        @apiHeader {String} Authorization Auth token
+        @apiHeaderExample {String} Authorization
+            Token 9ba45f09651c5b0c404f37a2d2572c026c146611
+
+        @apiParam {id} id Product Id to delete
+        @apiSuccessExample {json} Success
+            HTTP/1.1 204 No Content
         """
         try:
             product = Product.objects.get(pk=pk)
@@ -118,10 +209,32 @@ class Products(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def list(self, request):
-        """Handle GET requests to park attractions resource
+        """
+        @api {GET} /products GET all products
+        @apiName ListProducts
+        @apiGroup Product
 
-        Returns:
-            Response -- JSON serialized list of park attractions
+        @apiSuccess (200) {Object[]} products Array of products
+        @apiSuccessExample {json} Success
+            [
+                {
+                    "id": 101,
+                    "url": "http://localhost:8000/products/101",
+                    "name": "Kite",
+                    "price": 14.99,
+                    "number_sold": 0,
+                    "description": "It flies high",
+                    "quantity": 60,
+                    "created_date": "2019-10-23",
+                    "location": "Pittsburgh",
+                    "image_path": null,
+                    "average_rating": 0,
+                    "category": {
+                        "url": "http://localhost:8000/productcategories/6",
+                        "name": "Games/Toys"
+                    }
+                }
+            ]
         """
         products = Product.objects.all()
 
