@@ -1,5 +1,7 @@
 """View module for handling requests about park areas"""
 import datetime
+import base64
+from django.core.files.base import ContentFile
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -27,7 +29,6 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class Products(ViewSet):
     """Request handlers for Products in the Bangazon Platform"""
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    parser_classes = (MultiPartParser, FormParser,)
 
     def create(self, request):
         """
@@ -92,7 +93,6 @@ class Products(ViewSet):
         new_product.description = request.data["description"]
         new_product.quantity = request.data["quantity"]
         new_product.location = request.data["location"]
-        new_product.image_path = request.data["image_path"]
 
         customer = Customer.objects.get(user=request.auth.user)
         new_product.customer = customer
@@ -100,6 +100,13 @@ class Products(ViewSet):
         product_category = ProductCategory.objects.get(pk=request.data["category_id"])
         new_product.category = product_category
 
+        new_product.save()
+
+        format, imgstr = request.data["image_path"].split(';base64,')
+        ext = format.split('/')[-1]
+        data = ContentFile(base64.b64decode(imgstr), name=f'{request.data["name"]}-{new_product.id}.{ext}')
+
+        new_product.image_path = data
         new_product.save()
 
         serializer = ProductSerializer(
