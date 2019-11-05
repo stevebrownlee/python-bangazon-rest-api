@@ -24,7 +24,7 @@ class Product(SafeDeleteModel):
         ProductCategory, on_delete=models.DO_NOTHING, related_name='products')
     location = models.CharField(max_length=50,)
     image_path = models.ImageField(
-        upload_to=settings.MEDIA_ROOT, height_field=None,
+        upload_to='products', height_field=None,
         width_field=None, max_length=None, null=True)
 
     @property

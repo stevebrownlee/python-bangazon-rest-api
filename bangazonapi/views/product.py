@@ -7,6 +7,7 @@ from rest_framework import serializers
 from rest_framework import status
 from bangazonapi.models import Product, Customer, ProductCategory
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
@@ -26,6 +27,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class Products(ViewSet):
     """Request handlers for Products in the Bangazon Platform"""
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    parser_classes = (MultiPartParser, FormParser,)
 
     def create(self, request):
         """
@@ -90,7 +92,7 @@ class Products(ViewSet):
         new_product.description = request.data["description"]
         new_product.quantity = request.data["quantity"]
         new_product.location = request.data["location"]
-        new_product.image_path = ""
+        new_product.image_path = request.data["image_path"]
 
         customer = Customer.objects.get(user=request.auth.user)
         new_product.customer = customer

@@ -139,4 +139,5 @@ USE_TZ = True
 
 APPEND_SLASH = False
 
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
