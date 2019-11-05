@@ -104,7 +104,7 @@ class Products(ViewSet):
 
         format, imgstr = request.data["image_path"].split(';base64,')
         ext = format.split('/')[-1]
-        data = ContentFile(base64.b64decode(imgstr), name=f'{request.data["name"]}-{new_product.id}.{ext}')
+        data = ContentFile(base64.b64decode(imgstr), name=f'{new_product.id}-{request.data["name"]}.{ext}')
 
         new_product.image_path = data
         new_product.save()
