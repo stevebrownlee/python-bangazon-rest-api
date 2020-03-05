@@ -1,9 +1,10 @@
+"""Register user"""
 import json
-from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
+from django.http import HttpResponse, HttpResponseNotAllowed
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.authtoken.models import Token
 from bangazonapi.models import Customer
 
 
@@ -36,6 +37,8 @@ def login_user(request):
             # Bad login details were provided. So we can't log the user in.
             data = json.dumps({"valid": False})
             return HttpResponse(data, content_type='application/json')
+
+    return HttpResponseNotAllowed(permitted_methods=['POST'])
 
 
 @csrf_exempt
