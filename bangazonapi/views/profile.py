@@ -69,6 +69,8 @@ class Profile(ViewSet):
 
     @action(methods=['get', 'post', 'delete'], detail=False)
     def cart(self, request):
+        """Shopping cart manipulation"""
+
         current_user = Customer.objects.get(user=request.auth.user)
 
         if request.method == "DELETE":
@@ -203,6 +205,7 @@ class Profile(ViewSet):
 
             @apiError (404) {String} message  Not found message
             """
+
             try:
                 open_order = Order.objects.get(customer=current_user, payment_type=None)
             except Order.DoesNotExist as ex:
@@ -220,6 +223,8 @@ class Profile(ViewSet):
             line_item_json = LineItemSerializer(line_item, many=False, context={'request': request})
 
             return Response(line_item_json.data)
+
+        return Response({}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
     @action(methods=['get'], detail=False)
     def favoritesellers(self, request):
@@ -319,6 +324,35 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         depth = 1
 
 
+class FavoriteUserSerializer(serializers.HyperlinkedModelSerializer):
+    """JSON serializer for favorite sellers user
+
+    Arguments:
+        serializers
+    """
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username')
+        depth = 1
+
+
+class FavoriteSellerSerializer(serializers.HyperlinkedModelSerializer):
+    """JSON serializer for favorite sellers
+
+    Arguments:
+        serializers
+    """
+
+    user = FavoriteUserSerializer(many=False)
+
+    class Meta:
+        model = Customer
+        fields = ('id', 'url', 'user',)
+        depth = 1
+
+
+
 class FavoriteSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for favorites
 
@@ -326,8 +360,9 @@ class FavoriteSerializer(serializers.HyperlinkedModelSerializer):
         serializers
     """
 
+    seller = FavoriteSellerSerializer(many=False)
+
     class Meta:
         model = Favorite
         fields = ('id', 'seller')
-        depth = 1
-
+        depth = 2
