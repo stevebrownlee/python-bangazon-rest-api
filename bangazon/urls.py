@@ -10,7 +10,7 @@ from bangazonapi.views import *
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'products', Products, 'product')
 router.register(r'productcategories', ProductCategories, 'productcategory')
-router.register(r'lineitems', LineItems)
+router.register(r'lineitems', LineItems, base_name='orderproduct')
 router.register(r'customers', Customers, 'customer')
 router.register(r'users', Users, 'user')
 router.register(r'orders', Orders, 'order')
