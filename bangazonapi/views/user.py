@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for Users
-    Author: Dustin Hobson
 
     Arguments:
         serializers
@@ -24,7 +23,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class Users(ViewSet):
     """Users for Bangazon
-    Author: Dustin Hobson
     Purpose: Allow a user to communicate with the Bangazon database to GET PUT POST and DELETE Users.
     Methods: GET PUT(id) POST
 """
@@ -32,7 +30,6 @@ class Users(ViewSet):
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for single customer
-        Author: Dustin Hobson
         Purpose: Allow a user to communicate with the Bangazon database to retrieve  one user
         Methods:  GET
         Returns:
@@ -49,14 +46,13 @@ class Users(ViewSet):
 
     def list(self, request):
         """Handle GET requests to customers resource
-        Author: Dustin Hobson
         Purpose: Allow a user to communicate with the Bangazon database to retrieve  list of users
         Methods:  GET
 
         Returns:
             Response -- JSON serialized list of park areas
         """
-        users = Users.objects.all()
+        users = User.objects.all()
         serializer = UserSerializer(
             users, many=True, context={'request': request})
         return Response(serializer.data)

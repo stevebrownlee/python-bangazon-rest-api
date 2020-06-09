@@ -1,12 +1,9 @@
 """View module for handling requests about park areas"""
 import datetime
-from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers
 from rest_framework import status
-from rest_framework.decorators import action
-from bangazonapi.models import Order, Payment, Customer, Product, OrderProduct
+from bangazonapi.models import Order, Customer, Product, OrderProduct
 from .product import ProductSerializer
 from .order import OrderSerializer
 
