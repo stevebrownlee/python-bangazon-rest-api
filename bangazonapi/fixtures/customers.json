@@ -1,38 +1,801 @@
-[
-{
+[{
+    "pk": 1,
     "model": "bangazonapi.customer",
+    "fields": {
+      "user": 1,
+      "phone_number": "316-119-2840",
+      "address": "4016 Hanover Junction"
+    }
+  }, {
+    "pk": 2,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 2,
+      "phone_number": "572-237-7053",
+      "address": "528 Warbler Crossing"
+    }
+  }, {
+    "pk": 3,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 3,
+      "phone_number": "255-125-4189",
+      "address": "03 Bashford Pass"
+    }
+  }, {
     "pk": 4,
-    "fields": {
-        "user": 5,
-        "phone_number": "555-1212",
-        "address": "100 Infinity Way"
-    }
-},
-{
     "model": "bangazonapi.customer",
+    "fields": {
+      "user": 4,
+      "phone_number": "417-135-2008",
+      "address": "66628 Menomonie Drive"
+    }
+  }, {
     "pk": 5,
-    "fields": {
-        "user": 6,
-        "phone_number": "555-1212",
-        "address": "100 Endless Way"
-    }
-},
-{
     "model": "bangazonapi.customer",
+    "fields": {
+      "user": 5,
+      "phone_number": "175-593-3155",
+      "address": "7874 Roth Junction"
+    }
+  }, {
     "pk": 6,
-    "fields": {
-        "user": 7,
-        "phone_number": "555-1212",
-        "address": "100 Dauntless Way"
-    }
-},
-{
     "model": "bangazonapi.customer",
-    "pk": 7,
     "fields": {
-        "user": 8,
-        "phone_number": "555-1212",
-        "address": "100 Indefatiguable Way"
+      "user": 6,
+      "phone_number": "932-557-8678",
+      "address": "55 Armistice Center"
     }
-}
-]
+  }, {
+    "pk": 7,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 7,
+      "phone_number": "902-543-4702",
+      "address": "0017 Fairfield Plaza"
+    }
+  }, {
+    "pk": 8,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 8,
+      "phone_number": "445-722-0459",
+      "address": "67 Canary Crossing"
+    }
+  }, {
+    "pk": 9,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 9,
+      "phone_number": "887-760-0748",
+      "address": "64558 Sugar Road"
+    }
+  }, {
+    "pk": 10,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 10,
+      "phone_number": "783-983-1609",
+      "address": "068 Cherokee Lane"
+    }
+  }, {
+    "pk": 11,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 11,
+      "phone_number": "970-511-0239",
+      "address": "3 Sullivan Pass"
+    }
+  }, {
+    "pk": 12,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 12,
+      "phone_number": "739-883-5443",
+      "address": "89 Northwestern Hill"
+    }
+  }, {
+    "pk": 13,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 13,
+      "phone_number": "319-937-6881",
+      "address": "0 Jenifer Park"
+    }
+  }, {
+    "pk": 14,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 14,
+      "phone_number": "830-499-2289",
+      "address": "1130 Forest Circle"
+    }
+  }, {
+    "pk": 15,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 15,
+      "phone_number": "377-834-7687",
+      "address": "83 Express Center"
+    }
+  }, {
+    "pk": 16,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 16,
+      "phone_number": "589-218-4539",
+      "address": "5 New Castle Circle"
+    }
+  }, {
+    "pk": 17,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 17,
+      "phone_number": "807-773-2428",
+      "address": "02040 Mesta Drive"
+    }
+  }, {
+    "pk": 18,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 18,
+      "phone_number": "386-581-6477",
+      "address": "4678 Northland Circle"
+    }
+  }, {
+    "pk": 19,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 19,
+      "phone_number": "845-955-3489",
+      "address": "16 Granby Court"
+    }
+  }, {
+    "pk": 20,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 20,
+      "phone_number": "768-891-2725",
+      "address": "9 Mitchell Alley"
+    }
+  }, {
+    "pk": 21,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 21,
+      "phone_number": "948-213-3133",
+      "address": "4884 Eastlawn Crossing"
+    }
+  }, {
+    "pk": 22,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 22,
+      "phone_number": "774-370-5694",
+      "address": "911 Huxley Road"
+    }
+  }, {
+    "pk": 23,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 23,
+      "phone_number": "374-950-7125",
+      "address": "4340 Clarendon Hill"
+    }
+  }, {
+    "pk": 24,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 24,
+      "phone_number": "692-462-9055",
+      "address": "2 Spaight Drive"
+    }
+  }, {
+    "pk": 25,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 25,
+      "phone_number": "671-950-5254",
+      "address": "619 Calypso Parkway"
+    }
+  }, {
+    "pk": 26,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 26,
+      "phone_number": "671-584-0362",
+      "address": "241 Raven Place"
+    }
+  }, {
+    "pk": 27,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 27,
+      "phone_number": "559-524-8515",
+      "address": "64 Buhler Drive"
+    }
+  }, {
+    "pk": 28,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 28,
+      "phone_number": "922-333-4134",
+      "address": "06 Utah Way"
+    }
+  }, {
+    "pk": 29,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 29,
+      "phone_number": "884-937-3115",
+      "address": "372 3rd Parkway"
+    }
+  }, {
+    "pk": 30,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 30,
+      "phone_number": "315-204-7995",
+      "address": "3 Lien Avenue"
+    }
+  }, {
+    "pk": 31,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 31,
+      "phone_number": "840-379-8024",
+      "address": "62958 Center Alley"
+    }
+  }, {
+    "pk": 32,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 32,
+      "phone_number": "349-988-2290",
+      "address": "52802 Eagan Place"
+    }
+  }, {
+    "pk": 33,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 33,
+      "phone_number": "895-214-4573",
+      "address": "6983 Spohn Way"
+    }
+  }, {
+    "pk": 34,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 34,
+      "phone_number": "233-967-4745",
+      "address": "764 Rutledge Junction"
+    }
+  }, {
+    "pk": 35,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 35,
+      "phone_number": "669-714-5737",
+      "address": "411 Linden Park"
+    }
+  }, {
+    "pk": 36,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 36,
+      "phone_number": "199-133-2311",
+      "address": "5811 Eagle Crest Terrace"
+    }
+  }, {
+    "pk": 37,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 37,
+      "phone_number": "995-571-0018",
+      "address": "9877 Porter Center"
+    }
+  }, {
+    "pk": 38,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 38,
+      "phone_number": "243-155-9772",
+      "address": "02400 Loomis Trail"
+    }
+  }, {
+    "pk": 39,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 39,
+      "phone_number": "760-714-7419",
+      "address": "9 Ridgeway Plaza"
+    }
+  }, {
+    "pk": 40,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 40,
+      "phone_number": "457-210-4493",
+      "address": "5 Mallory Park"
+    }
+  }, {
+    "pk": 41,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 41,
+      "phone_number": "874-112-9287",
+      "address": "440 Independence Center"
+    }
+  }, {
+    "pk": 42,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 42,
+      "phone_number": "262-875-2622",
+      "address": "44178 Mariners Cove Pass"
+    }
+  }, {
+    "pk": 43,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 43,
+      "phone_number": "587-153-2659",
+      "address": "31 Fairfield Street"
+    }
+  }, {
+    "pk": 44,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 44,
+      "phone_number": "260-822-7631",
+      "address": "67 Meadow Valley Road"
+    }
+  }, {
+    "pk": 45,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 45,
+      "phone_number": "921-963-2950",
+      "address": "0 Forster Court"
+    }
+  }, {
+    "pk": 46,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 46,
+      "phone_number": "454-806-1530",
+      "address": "482 Armistice Circle"
+    }
+  }, {
+    "pk": 47,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 47,
+      "phone_number": "291-693-4384",
+      "address": "9 Division Way"
+    }
+  }, {
+    "pk": 48,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 48,
+      "phone_number": "513-175-0552",
+      "address": "6465 Forster Center"
+    }
+  }, {
+    "pk": 49,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 49,
+      "phone_number": "878-933-2492",
+      "address": "77183 Huxley Parkway"
+    }
+  }, {
+    "pk": 50,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 50,
+      "phone_number": "769-157-6145",
+      "address": "83 Steensland Hill"
+    }
+  }, {
+    "pk": 51,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 51,
+      "phone_number": "435-215-1192",
+      "address": "51 Gale Pass"
+    }
+  }, {
+    "pk": 52,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 52,
+      "phone_number": "230-816-6260",
+      "address": "400 Eastwood Junction"
+    }
+  }, {
+    "pk": 53,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 53,
+      "phone_number": "181-826-3512",
+      "address": "499 Sauthoff Street"
+    }
+  }, {
+    "pk": 54,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 54,
+      "phone_number": "604-143-9780",
+      "address": "19 Northland Street"
+    }
+  }, {
+    "pk": 55,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 55,
+      "phone_number": "990-282-7304",
+      "address": "5717 Jenifer Way"
+    }
+  }, {
+    "pk": 56,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 56,
+      "phone_number": "258-929-7648",
+      "address": "69791 Forster Crossing"
+    }
+  }, {
+    "pk": 57,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 57,
+      "phone_number": "117-396-7286",
+      "address": "85 Myrtle Point"
+    }
+  }, {
+    "pk": 58,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 58,
+      "phone_number": "927-835-2392",
+      "address": "784 Carberry Parkway"
+    }
+  }, {
+    "pk": 59,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 59,
+      "phone_number": "382-712-3019",
+      "address": "8884 Leroy Crossing"
+    }
+  }, {
+    "pk": 60,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 60,
+      "phone_number": "254-933-4506",
+      "address": "469 Sachtjen Road"
+    }
+  }, {
+    "pk": 61,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 61,
+      "phone_number": "627-808-4967",
+      "address": "4662 Garrison Center"
+    }
+  }, {
+    "pk": 62,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 62,
+      "phone_number": "493-559-0316",
+      "address": "4458 Cascade Park"
+    }
+  }, {
+    "pk": 63,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 63,
+      "phone_number": "117-804-9936",
+      "address": "3 Eastlawn Road"
+    }
+  }, {
+    "pk": 64,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 64,
+      "phone_number": "340-221-6116",
+      "address": "81446 Pawling Circle"
+    }
+  }, {
+    "pk": 65,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 65,
+      "phone_number": "115-733-6410",
+      "address": "48 Heath Drive"
+    }
+  }, {
+    "pk": 66,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 66,
+      "phone_number": "798-460-6156",
+      "address": "4 Novick Trail"
+    }
+  }, {
+    "pk": 67,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 67,
+      "phone_number": "801-856-9198",
+      "address": "3414 Jana Alley"
+    }
+  }, {
+    "pk": 68,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 68,
+      "phone_number": "269-720-6977",
+      "address": "87115 Heffernan Terrace"
+    }
+  }, {
+    "pk": 69,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 69,
+      "phone_number": "778-931-1075",
+      "address": "3370 Brickson Park Drive"
+    }
+  }, {
+    "pk": 70,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 70,
+      "phone_number": "430-679-1733",
+      "address": "2031 Mitchell Point"
+    }
+  }, {
+    "pk": 71,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 71,
+      "phone_number": "215-913-8138",
+      "address": "8 Fairfield Drive"
+    }
+  }, {
+    "pk": 72,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 72,
+      "phone_number": "401-161-3230",
+      "address": "6 Glendale Way"
+    }
+  }, {
+    "pk": 73,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 73,
+      "phone_number": "943-864-2189",
+      "address": "6952 Ruskin Trail"
+    }
+  }, {
+    "pk": 74,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 74,
+      "phone_number": "879-732-3721",
+      "address": "8038 Ilene Circle"
+    }
+  }, {
+    "pk": 75,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 75,
+      "phone_number": "668-907-2306",
+      "address": "33031 Fordem Hill"
+    }
+  }, {
+    "pk": 76,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 76,
+      "phone_number": "538-951-2673",
+      "address": "49 Erie Plaza"
+    }
+  }, {
+    "pk": 77,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 77,
+      "phone_number": "485-670-8536",
+      "address": "5356 Knutson Center"
+    }
+  }, {
+    "pk": 78,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 78,
+      "phone_number": "845-745-7866",
+      "address": "366 Nobel Terrace"
+    }
+  }, {
+    "pk": 79,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 79,
+      "phone_number": "468-173-6023",
+      "address": "6 Pine View Center"
+    }
+  }, {
+    "pk": 80,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 80,
+      "phone_number": "121-732-3954",
+      "address": "6975 Jana Hill"
+    }
+  }, {
+    "pk": 81,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 81,
+      "phone_number": "519-768-0525",
+      "address": "92 Aberg Drive"
+    }
+  }, {
+    "pk": 82,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 82,
+      "phone_number": "145-764-6150",
+      "address": "2 International Place"
+    }
+  }, {
+    "pk": 83,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 83,
+      "phone_number": "253-352-0834",
+      "address": "84223 Victoria Hill"
+    }
+  }, {
+    "pk": 84,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 84,
+      "phone_number": "835-496-6482",
+      "address": "25209 Jana Plaza"
+    }
+  }, {
+    "pk": 85,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 85,
+      "phone_number": "725-559-8156",
+      "address": "01 Helena Drive"
+    }
+  }, {
+    "pk": 86,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 86,
+      "phone_number": "728-758-0732",
+      "address": "4 Kennedy Drive"
+    }
+  }, {
+    "pk": 87,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 87,
+      "phone_number": "586-739-7940",
+      "address": "3735 Lunder Center"
+    }
+  }, {
+    "pk": 88,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 88,
+      "phone_number": "306-265-5627",
+      "address": "0602 Mcbride Hill"
+    }
+  }, {
+    "pk": 89,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 89,
+      "phone_number": "788-949-3148",
+      "address": "7490 Cardinal Circle"
+    }
+  }, {
+    "pk": 90,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 90,
+      "phone_number": "562-574-9255",
+      "address": "98677 Birchwood Street"
+    }
+  }, {
+    "pk": 91,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 91,
+      "phone_number": "728-922-7607",
+      "address": "58668 Tennessee Alley"
+    }
+  }, {
+    "pk": 92,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 92,
+      "phone_number": "519-145-6772",
+      "address": "636 Forest Run Street"
+    }
+  }, {
+    "pk": 93,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 93,
+      "phone_number": "671-343-2454",
+      "address": "20 Forest Dale Pass"
+    }
+  }, {
+    "pk": 94,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 94,
+      "phone_number": "129-478-4098",
+      "address": "5785 Bonner Pass"
+    }
+  }, {
+    "pk": 95,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 95,
+      "phone_number": "378-709-9543",
+      "address": "8 Shelley Plaza"
+    }
+  }, {
+    "pk": 96,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 96,
+      "phone_number": "149-991-3453",
+      "address": "8 Paget Lane"
+    }
+  }, {
+    "pk": 97,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 97,
+      "phone_number": "965-348-6146",
+      "address": "26 Sachs Court"
+    }
+  }, {
+    "pk": 98,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 98,
+      "phone_number": "212-393-1217",
+      "address": "21 Bobwhite Avenue"
+    }
+  }, {
+    "pk": 99,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 99,
+      "phone_number": "623-547-5825",
+      "address": "123 Mesta Parkway"
+    }
+  }, {
+    "pk": 100,
+    "model": "bangazonapi.customer",
+    "fields": {
+      "user": 100,
+      "phone_number": "670-823-4054",
+      "address": "25 Dixon Junction"
+    }
+  }]

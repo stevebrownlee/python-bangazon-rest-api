@@ -1,35 +1,251 @@
-[
-    {
-        "model": "bangazonapi.payment",
-        "pk": 1,
-        "fields": {
-            "merchant_name": "Visa",
-            "account_number": "24ijio68948fj8439",
-            "customer_id": "5",
-            "expiration_date": "2020-01-01",
-            "create_date": "2019-11-11"
-        }
-    },
-    {
-        "model": "bangazonapi.payment",
-        "pk": 2,
-        "fields": {
-            "merchant_name": "Mastercard",
-            "account_number": "39j3984fj9sofi9",
-            "customer_id": "6",
-            "expiration_date": "2020-02-01",
-            "create_date": "2019-12-12"
-        }
-    },
-    {
-        "model": "bangazonapi.payment",
-        "pk": 3,
-        "fields": {
-            "merchant_name": "Visa",
-            "account_number": "fj0398fjw0g89434",
-            "customer_id": "7",
-            "expiration_date": "2020-03-01",
-            "create_date": "2019-03-11"
-        }
+[{
+    "model": "bangazonapi.payment",
+    "pk": 1,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3579092533892412",
+      "customer_id": 4,
+      "expiration_date": "5/10/2019",
+      "create_date": "10/15/2016"
     }
-]
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 2,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3533073759997304",
+      "customer_id": 16,
+      "expiration_date": "7/28/2019",
+      "create_date": "7/2/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 3,
+    "fields": {
+      "merchant_name": "mastercard",
+      "account_number": "5010129050129208",
+      "customer_id": 14,
+      "expiration_date": "10/1/2019",
+      "create_date": "4/17/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 4,
+    "fields": {
+      "merchant_name": "switch",
+      "account_number": "5641828750860296",
+      "customer_id": 18,
+      "expiration_date": "2/26/2019",
+      "create_date": "2/18/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 5,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3561958686999552",
+      "customer_id": 8,
+      "expiration_date": "2/26/2019",
+      "create_date": "3/12/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 6,
+    "fields": {
+      "merchant_name": "visa-electron",
+      "account_number": "4844904782557784",
+      "customer_id": 23,
+      "expiration_date": "4/15/2019",
+      "create_date": "11/26/2016"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 7,
+    "fields": {
+      "merchant_name": "bankcard",
+      "account_number": "5602212338497474",
+      "customer_id": 3,
+      "expiration_date": "6/30/2019",
+      "create_date": "5/6/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 8,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3562706842951077",
+      "customer_id": 19,
+      "expiration_date": "5/3/2019",
+      "create_date": "4/28/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 9,
+    "fields": {
+      "merchant_name": "switch",
+      "account_number": "5641828528394840793",
+      "customer_id": 22,
+      "expiration_date": "8/4/2019",
+      "create_date": "9/30/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 10,
+    "fields": {
+      "merchant_name": "maestro",
+      "account_number": "5038523527311373646",
+      "customer_id": 7,
+      "expiration_date": "2/4/2019",
+      "create_date": "10/22/2016"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 11,
+    "fields": {
+      "merchant_name": "china-unionpay",
+      "account_number": "5602230349940054134",
+      "customer_id": 2,
+      "expiration_date": "7/14/2019",
+      "create_date": "9/25/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 12,
+    "fields": {
+      "merchant_name": "switch",
+      "account_number": "6759387198169626",
+      "customer_id": 24,
+      "expiration_date": "3/24/2019",
+      "create_date": "7/19/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 13,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3578129725637675",
+      "customer_id": 2,
+      "expiration_date": "4/5/2019",
+      "create_date": "4/5/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 14,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3541227787998425",
+      "customer_id": 21,
+      "expiration_date": "3/20/2019",
+      "create_date": "10/29/2016"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 15,
+    "fields": {
+      "merchant_name": "bankcard",
+      "account_number": "5602230076308869",
+      "customer_id": 22,
+      "expiration_date": "3/5/2019",
+      "create_date": "4/3/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 16,
+    "fields": {
+      "merchant_name": "solo",
+      "account_number": "6334641619942902",
+      "customer_id": 25,
+      "expiration_date": "7/23/2019",
+      "create_date": "3/3/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 17,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3584001987105125",
+      "customer_id": 25,
+      "expiration_date": "7/14/2019",
+      "create_date": "7/23/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 18,
+    "fields": {
+      "merchant_name": "mastercard",
+      "account_number": "5002357890177794",
+      "customer_id": 10,
+      "expiration_date": "1/15/2019",
+      "create_date": "3/7/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 19,
+    "fields": {
+      "merchant_name": "instapayment",
+      "account_number": "6376738534559743",
+      "customer_id": 17,
+      "expiration_date": "1/19/2019",
+      "create_date": "10/31/2016"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 20,
+    "fields": {
+      "merchant_name": "diners-club-international",
+      "account_number": "36092106504579",
+      "customer_id": 24,
+      "expiration_date": "9/2/2019",
+      "create_date": "12/20/2016"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 21,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3547834363479169",
+      "customer_id": 7,
+      "expiration_date": "10/18/2018",
+      "create_date": "1/12/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 22,
+    "fields": {
+      "merchant_name": "diners-club-international",
+      "account_number": "36390583126605",
+      "customer_id": 12,
+      "expiration_date": "6/1/2019",
+      "create_date": "4/1/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 23,
+    "fields": {
+      "merchant_name": "bankcard",
+      "account_number": "5610274143781922",
+      "customer_id": 12,
+      "expiration_date": "7/21/2019",
+      "create_date": "5/1/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 24,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3570378291550592",
+      "customer_id": 22,
+      "expiration_date": "5/1/2019",
+      "create_date": "8/31/2017"
+    }
+  }, {
+    "model": "bangazonapi.payment",
+    "pk": 25,
+    "fields": {
+      "merchant_name": "jcb",
+      "account_number": "3571982396447494",
+      "customer_id": 10,
+      "expiration_date": "5/19/2019",
+      "create_date": "2/1/2017"
+    }
+  }]

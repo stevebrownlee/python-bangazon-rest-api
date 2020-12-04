@@ -25,6 +25,14 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
                   'average_rating', 'can_be_rated', 'category',)
         depth = 1
 
+    # def validate_price(self, value):
+    #     """
+    #     Check that the blog post is about Django.
+    #     """
+    #     if 'django' not in value.lower():
+    #         raise serializers.ValidationError("Blog post is not about Django")
+    #     return value
+
 
 class Products(ViewSet):
     """Request handlers for Products in the Bangazon Platform"""
@@ -100,17 +108,29 @@ class Products(ViewSet):
         product_category = ProductCategory.objects.get(pk=request.data["category_id"])
         new_product.category = product_category
 
-        format, imgstr = request.data["image_path"].split(';base64,')
-        ext = format.split('/')[-1]
-        data = ContentFile(base64.b64decode(imgstr), name=f'{new_product.id}-{request.data["name"]}.{ext}')
+        if "image_path" in request.data:
+            format, imgstr = request.data["image_path"].split(';base64,')
+            ext = format.split('/')[-1]
+            data = ContentFile(base64.b64decode(imgstr), name=f'{new_product.id}-{request.data["name"]}.{ext}')
 
-        new_product.image_path = data
-        new_product.save()
+            new_product.image_path = data
 
-        serializer = ProductSerializer(
-            new_product, context={'request': request})
+        # Run the product info through the serializer to validate it
+        serializer = ProductSerializer(data=new_product.__dict__)
 
-        return Response(serializer.data)
+        # If the data is valid, save the product
+        if serializer.is_valid():
+            new_product.save()
+
+            serializer = ProductSerializer(
+                new_product, context={'request': request})
+
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        # Return a 400 response with the errors in the body
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
     def retrieve(self, request, pk=None):
         """
