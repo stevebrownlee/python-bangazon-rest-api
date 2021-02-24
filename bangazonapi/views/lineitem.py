@@ -8,31 +8,14 @@ from rest_framework import status
 from bangazonapi.models import OrderProduct, Order, Product, Customer
 
 
-class LineItemSerializer(serializers.HyperlinkedModelSerializer):
+class LineItemSerializer(serializers.ModelSerializer):
     """JSON serializer for line items """
     class Meta:
         model = OrderProduct
-        url = serializers.HyperlinkedIdentityField(
-            view_name='lineitem',
-            lookup_field='id'
-        )
         fields = ('id', 'url', 'order', 'product')
 
 class LineItems(ViewSet):
     """Line items for Bangazon orders"""
-
-    # TIP: By setting this class attribute, then a `basename` parameter
-    #      does not need to be set on the route in urls.py:11 and allow
-    #      the serializer (see above) use the `view_name='lineitem'`
-    #      argument for the HyperlinkedIdentityField. If this is NOT set
-    #      then the following exception gets thrown.
-    #
-    # ImproperlyConfigured at /lineitems/4
-    #   Could not resolve URL for hyperlinked relationship using view name
-    #   "orderproduct-detail". You may have failed to include the related
-    #   model in your API, or incorrectly configured the `lookup_field`
-    #   attribute on this field.
-    # queryset = OrderProduct.objects.all()
 
     def retrieve(self, request, pk=None):
         """

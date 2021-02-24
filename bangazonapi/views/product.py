@@ -1,10 +1,11 @@
 """View module for handling requests about park areas"""
-import datetime
+from bangazonapi.models.recommendation import Recommendation
 import base64
 from django.core.files.base import ContentFile
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework import serializers
 from rest_framework import status
 from bangazonapi.models import Product, Customer, ProductCategory
@@ -12,15 +13,11 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.parsers import MultiPartParser, FormParser
 
 
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     """JSON serializer for products"""
     class Meta:
         model = Product
-        url = serializers.HyperlinkedIdentityField(
-            view_name='product',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'name', 'price', 'number_sold', 'description',
+        fields = ('id', 'name', 'price', 'number_sold', 'description',
                   'quantity', 'created_date', 'location', 'image_path',
                   'average_rating', 'can_be_rated', 'category',)
         depth = 1
@@ -302,3 +299,20 @@ class Products(ViewSet):
         serializer = ProductSerializer(
             products, many=True, context={'request': request})
         return Response(serializer.data)
+
+    @action(methods=['post'], detail=True)
+    def recommend(self, request, pk=None):
+        """Recommend products to other users"""
+
+        if request.method == "POST":
+            rec = Recommendation()
+            rec.recommender = Customer.objects.get(user=request.auth.user)
+            rec.customer = Customer.objects.get(user__id=request.data["recipient"])
+            rec.product = Product.objects.get(pk=pk)
+
+            rec.save()
+
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+        return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+

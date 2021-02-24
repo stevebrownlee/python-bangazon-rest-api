@@ -13,7 +13,7 @@ methods: all
 '''
 
 
-class PaymentSerializer(serializers.HyperlinkedModelSerializer):
+class PaymentSerializer(serializers.ModelSerializer):
     """JSON serializer for Payment
 
     Arguments:
@@ -21,11 +21,7 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
     """
     class Meta:
         model = Payment
-        url = serializers.HyperlinkedIdentityField(
-            view_name='payment',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'merchant_name', 'account_number', 'expiration_date', 'create_date')
+        fields = ('id', 'merchant_name', 'account_number', 'expiration_date', 'create_date')
 
 
 class Payments(ViewSet):

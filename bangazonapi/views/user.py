@@ -6,7 +6,7 @@ from rest_framework import status
 from django.contrib.auth.models import User
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     """JSON serializer for Users
 
     Arguments:
@@ -14,18 +14,14 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     """
     class Meta:
         model = User
-        url = serializers.HyperlinkedIdentityField(
-            view_name='user',
-            lookup_field = 'id'
-        )
-        fields = ('id', 'url', 'username', 'password', 'first_name', 'last_name', 'email', 'is_active', 'date_joined')
+        fields = ('id', 'username', 'password', 'first_name', 'last_name', 'email', 'is_active', 'date_joined')
 
 
 class Users(ViewSet):
     """Users for Bangazon
     Purpose: Allow a user to communicate with the Bangazon database to GET PUT POST and DELETE Users.
     Methods: GET PUT(id) POST
-"""
+    """
 
 
     def retrieve(self, request, pk=None):

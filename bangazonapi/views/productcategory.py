@@ -14,7 +14,7 @@ from bangazonapi.models import ProductCategory
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
-class ProductCategorySerializer(serializers.HyperlinkedModelSerializer):
+class ProductCategorySerializer(serializers.ModelSerializer):
     """JSON serializer for park areas
 
     Arguments:
@@ -22,11 +22,7 @@ class ProductCategorySerializer(serializers.HyperlinkedModelSerializer):
     """
     class Meta:
         model = ProductCategory
-        url = serializers.HyperlinkedIdentityField(
-            view_name='productcategory',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'name')
+        fields = ('id', 'name')
 
 
 class ProductCategories(ViewSet):

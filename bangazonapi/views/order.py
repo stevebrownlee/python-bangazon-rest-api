@@ -10,32 +10,24 @@ from bangazonapi.models import Order, Payment, Customer, Product, OrderProduct
 from .product import ProductSerializer
 
 
-class OrderLineItemSerializer(serializers.HyperlinkedModelSerializer):
+class OrderLineItemSerializer(serializers.ModelSerializer):
     """JSON serializer for line items """
 
     product = ProductSerializer(many=False)
 
     class Meta:
         model = OrderProduct
-        url = serializers.HyperlinkedIdentityField(
-            view_name='lineitem',
-            lookup_field='id'
-        )
         fields = ('id', 'product')
         depth = 1
 
-class OrderSerializer(serializers.HyperlinkedModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     """JSON serializer for customer orders"""
 
     lineitems = OrderLineItemSerializer(many=True)
 
     class Meta:
         model = Order
-        url = serializers.HyperlinkedIdentityField(
-            view_name='order',
-            lookup_field='id'
-        )
-        fields = ('id', 'url', 'created_date', 'payment_type', 'customer', 'lineitems')
+        fields = ('id', 'created_date', 'payment_type', 'customer', 'lineitems')
 
 
 class Orders(ViewSet):
