@@ -8,7 +8,7 @@
       "description": "2001 Chevrolet",
       "quantity": 3,
       "created_date": "2018-12-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Sembakung",
       "image_path": null
     }
@@ -22,7 +22,7 @@
       "description": "1999 Porsche",
       "quantity": 3,
       "created_date": "2019-05-10",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Cocieri",
       "image_path": null
     }
@@ -36,7 +36,7 @@
       "description": "2007 BMW",
       "quantity": 2,
       "created_date": "2019-01-09",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Wentang",
       "image_path": null
     }
@@ -50,7 +50,7 @@
       "description": "1993 Isuzu",
       "quantity": 2,
       "created_date": "2019-04-17",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Stockholm",
       "image_path": null
     }
@@ -64,7 +64,7 @@
       "description": "2010 Suzuki",
       "quantity": 4,
       "created_date": "2019-08-12",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gucheng",
       "image_path": null
     }
@@ -78,7 +78,7 @@
       "description": "1999 Dodge",
       "quantity": 4,
       "created_date": "2019-08-16",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Järna",
       "image_path": null
     }
@@ -92,7 +92,7 @@
       "description": "1993 Dodge",
       "quantity": 1,
       "created_date": "2018-11-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Tiron",
       "image_path": null
     }
@@ -106,7 +106,7 @@
       "description": "1999 Ford",
       "quantity": 3,
       "created_date": "2019-09-26",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Fenoarivo Atsinanana",
       "image_path": null
     }
@@ -120,7 +120,7 @@
       "description": "2012 Toyota",
       "quantity": 1,
       "created_date": "2019-01-13",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Ramanavichy",
       "image_path": null
     }
@@ -134,7 +134,7 @@
       "description": "1987 Audi",
       "quantity": 4,
       "created_date": "2019-04-23",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "West End",
       "image_path": null
     }
@@ -148,7 +148,7 @@
       "description": "1999 Dodge",
       "quantity": 2,
       "created_date": "2019-05-05",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Yuewan",
       "image_path": null
     }
@@ -162,7 +162,7 @@
       "description": "2008 Mercedes-Benz",
       "quantity": 3,
       "created_date": "2018-12-14",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Washington",
       "image_path": null
     }
@@ -176,7 +176,7 @@
       "description": "1985 Honda",
       "quantity": 3,
       "created_date": "2019-07-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Daliuhao",
       "image_path": null
     }
@@ -190,7 +190,7 @@
       "description": "2004 Suzuki",
       "quantity": 3,
       "created_date": "2019-03-08",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Pengfang",
       "image_path": null
     }
@@ -204,7 +204,7 @@
       "description": "1986 Mercury",
       "quantity": 1,
       "created_date": "2019-09-21",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Oula Xiuma",
       "image_path": null
     }
@@ -218,7 +218,7 @@
       "description": "2005 Ford",
       "quantity": 1,
       "created_date": "2019-05-29",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Hong’an",
       "image_path": null
     }
@@ -232,7 +232,7 @@
       "description": "1986 Pontiac",
       "quantity": 1,
       "created_date": "2018-10-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "San Rafael Oriente",
       "image_path": null
     }
@@ -246,7 +246,7 @@
       "description": "2007 Dodge",
       "quantity": 4,
       "created_date": "2019-01-25",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Sukaraja",
       "image_path": null
     }
@@ -260,7 +260,7 @@
       "description": "1999 Toyota",
       "quantity": 4,
       "created_date": "2018-11-01",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gaoliang",
       "image_path": null
     }
@@ -274,7 +274,7 @@
       "description": "1997 Mazda",
       "quantity": 1,
       "created_date": "2019-05-06",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Sorinomo",
       "image_path": null
     }
@@ -288,7 +288,7 @@
       "description": "1997 Mazda",
       "quantity": 4,
       "created_date": "2018-11-29",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Huaguo",
       "image_path": null
     }
@@ -302,7 +302,7 @@
       "description": "2005 BMW",
       "quantity": 4,
       "created_date": "2018-10-29",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Dadiharja",
       "image_path": null
     }
@@ -316,7 +316,7 @@
       "description": "1990 Acura",
       "quantity": 1,
       "created_date": "2019-02-03",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Ocote Paulino",
       "image_path": null
     }
@@ -330,7 +330,7 @@
       "description": "2009 Acura",
       "quantity": 3,
       "created_date": "2019-08-15",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Salem",
       "image_path": null
     }
@@ -344,7 +344,7 @@
       "description": "1993 Mercedes-Benz",
       "quantity": 3,
       "created_date": "2019-05-31",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kanggye-si",
       "image_path": null
     }
@@ -358,7 +358,7 @@
       "description": "1994 Dodge",
       "quantity": 3,
       "created_date": "2019-07-03",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Jetak Kulon",
       "image_path": null
     }
@@ -372,7 +372,7 @@
       "description": "2011 Mercedes-Benz",
       "quantity": 3,
       "created_date": "2018-10-17",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Aveleda",
       "image_path": null
     }
@@ -386,7 +386,7 @@
       "description": "2000 Cadillac",
       "quantity": 3,
       "created_date": "2019-08-07",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kozloduy",
       "image_path": null
     }
@@ -400,7 +400,7 @@
       "description": "2000 Dodge",
       "quantity": 2,
       "created_date": "2019-09-14",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Cartagena del Chairá",
       "image_path": null
     }
@@ -414,7 +414,7 @@
       "description": "2012 Nissan",
       "quantity": 4,
       "created_date": "2018-11-30",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Khatsyezhyna",
       "image_path": null
     }
@@ -428,7 +428,7 @@
       "description": "1993 BMW",
       "quantity": 2,
       "created_date": "2019-03-31",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Chicago",
       "image_path": null
     }
@@ -442,7 +442,7 @@
       "description": "2010 Dodge",
       "quantity": 4,
       "created_date": "2019-04-09",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Campos Novos",
       "image_path": null
     }
@@ -456,7 +456,7 @@
       "description": "2006 Chrysler",
       "quantity": 1,
       "created_date": "2019-04-17",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kandava",
       "image_path": null
     }
@@ -470,7 +470,7 @@
       "description": "2008 MINI",
       "quantity": 3,
       "created_date": "2019-07-20",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Siemiątkowo",
       "image_path": null
     }
@@ -484,7 +484,7 @@
       "description": "2009 Aptera",
       "quantity": 4,
       "created_date": "2019-07-15",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Qaryat al Qābil",
       "image_path": null
     }
@@ -498,7 +498,7 @@
       "description": "2010 GMC",
       "quantity": 2,
       "created_date": "2019-05-16",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kota Kinabalu",
       "image_path": null
     }
@@ -512,7 +512,7 @@
       "description": "2009 Mercedes-Benz",
       "quantity": 4,
       "created_date": "2019-10-02",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gaobu",
       "image_path": null
     }
@@ -526,7 +526,7 @@
       "description": "2005 Saturn",
       "quantity": 2,
       "created_date": "2019-02-13",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Loma Bonita",
       "image_path": null
     }
@@ -540,7 +540,7 @@
       "description": "1995 Hyundai",
       "quantity": 4,
       "created_date": "2019-05-30",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kotakaya Dua",
       "image_path": null
     }
@@ -554,7 +554,7 @@
       "description": "2012 Acura",
       "quantity": 4,
       "created_date": "2018-10-27",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Paprotnia",
       "image_path": null
     }
@@ -568,7 +568,7 @@
       "description": "2008 Chrysler",
       "quantity": 2,
       "created_date": "2018-10-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Yufrus",
       "image_path": null
     }
@@ -582,7 +582,7 @@
       "description": "1991 Buick",
       "quantity": 4,
       "created_date": "2019-05-30",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Niny",
       "image_path": null
     }
@@ -596,7 +596,7 @@
       "description": "1999 GMC",
       "quantity": 3,
       "created_date": "2019-05-11",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Cakungsari",
       "image_path": null
     }
@@ -610,7 +610,7 @@
       "description": "2006 Jaguar",
       "quantity": 3,
       "created_date": "2019-05-13",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Sitajara",
       "image_path": null
     }
@@ -624,7 +624,7 @@
       "description": "1985 Audi",
       "quantity": 1,
       "created_date": "2019-05-12",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Lincheng",
       "image_path": null
     }
@@ -638,7 +638,7 @@
       "description": "2011 Chevrolet",
       "quantity": 1,
       "created_date": "2019-03-23",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Jiwei",
       "image_path": null
     }
@@ -652,7 +652,7 @@
       "description": "2006 Chevrolet",
       "quantity": 1,
       "created_date": "2019-05-31",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Czernice Borowe",
       "image_path": null
     }
@@ -666,7 +666,7 @@
       "description": "2009 Nissan",
       "quantity": 3,
       "created_date": "2019-06-27",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Ciudad Choluteca",
       "image_path": null
     }
@@ -680,7 +680,7 @@
       "description": "2009 Aptera",
       "quantity": 2,
       "created_date": "2019-06-15",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Hongguang",
       "image_path": null
     }
@@ -694,7 +694,7 @@
       "description": "1988 Mazda",
       "quantity": 1,
       "created_date": "2019-05-05",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Cacequi",
       "image_path": null
     }
@@ -708,7 +708,7 @@
       "description": "2004 Chevrolet",
       "quantity": 3,
       "created_date": "2019-02-21",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "San Miguel",
       "image_path": null
     }
@@ -722,7 +722,7 @@
       "description": "1994 Mitsubishi",
       "quantity": 2,
       "created_date": "2019-01-15",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gävle",
       "image_path": null
     }
@@ -736,7 +736,7 @@
       "description": "2005 Volkswagen",
       "quantity": 4,
       "created_date": "2018-11-27",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Uppsala",
       "image_path": null
     }
@@ -750,7 +750,7 @@
       "description": "1992 Buick",
       "quantity": 2,
       "created_date": "2019-05-13",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Svalöv",
       "image_path": null
     }
@@ -764,7 +764,7 @@
       "description": "2002 Chevrolet",
       "quantity": 2,
       "created_date": "2019-07-09",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Accha",
       "image_path": null
     }
@@ -778,7 +778,7 @@
       "description": "2002 Mercury",
       "quantity": 3,
       "created_date": "2019-08-25",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Besisahar",
       "image_path": null
     }
@@ -792,7 +792,7 @@
       "description": "2007 Mazda",
       "quantity": 1,
       "created_date": "2019-03-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Qorao’zak",
       "image_path": null
     }
@@ -806,7 +806,7 @@
       "description": "1994 Dodge",
       "quantity": 1,
       "created_date": "2018-10-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Évreux",
       "image_path": null
     }
@@ -820,7 +820,7 @@
       "description": "2011 Infiniti",
       "quantity": 3,
       "created_date": "2019-02-24",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Zhendong",
       "image_path": null
     }
@@ -834,7 +834,7 @@
       "description": "1993 Ford",
       "quantity": 1,
       "created_date": "2019-06-26",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Guam Government House",
       "image_path": null
     }
@@ -848,7 +848,7 @@
       "description": "2000 Pontiac",
       "quantity": 1,
       "created_date": "2019-07-15",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Hanting",
       "image_path": null
     }
@@ -862,7 +862,7 @@
       "description": "2007 Hyundai",
       "quantity": 1,
       "created_date": "2019-02-25",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Silago",
       "image_path": null
     }
@@ -876,7 +876,7 @@
       "description": "2011 Ford",
       "quantity": 3,
       "created_date": "2019-01-14",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gonça",
       "image_path": null
     }
@@ -890,7 +890,7 @@
       "description": "1998 Ford",
       "quantity": 2,
       "created_date": "2019-09-16",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gudong",
       "image_path": null
     }
@@ -904,7 +904,7 @@
       "description": "2007 Mercedes-Benz",
       "quantity": 1,
       "created_date": "2019-05-02",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Itapetinga",
       "image_path": null
     }
@@ -918,7 +918,7 @@
       "description": "2007 Ford",
       "quantity": 1,
       "created_date": "2019-04-29",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Norrtälje",
       "image_path": null
     }
@@ -932,7 +932,7 @@
       "description": "2006 Ford",
       "quantity": 3,
       "created_date": "2019-04-01",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Baoluan",
       "image_path": null
     }
@@ -946,7 +946,7 @@
       "description": "1997 Mercury",
       "quantity": 2,
       "created_date": "2018-10-14",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Komyshnya",
       "image_path": null
     }
@@ -960,7 +960,7 @@
       "description": "2006 GMC",
       "quantity": 1,
       "created_date": "2019-06-09",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Le Pontet",
       "image_path": null
     }
@@ -974,7 +974,7 @@
       "description": "1985 Mitsubishi",
       "quantity": 3,
       "created_date": "2018-10-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Florencia",
       "image_path": null
     }
@@ -988,7 +988,7 @@
       "description": "2009 Pontiac",
       "quantity": 4,
       "created_date": "2019-04-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kolochava",
       "image_path": null
     }
@@ -1002,7 +1002,7 @@
       "description": "1970 Mercury",
       "quantity": 2,
       "created_date": "2018-10-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Murów",
       "image_path": null
     }
@@ -1016,7 +1016,7 @@
       "description": "2004 Saturn",
       "quantity": 4,
       "created_date": "2019-03-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Chelgard",
       "image_path": null
     }
@@ -1030,7 +1030,7 @@
       "description": "2003 BMW",
       "quantity": 1,
       "created_date": "2019-04-04",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Luzern",
       "image_path": null
     }
@@ -1044,7 +1044,7 @@
       "description": "1992 Volkswagen",
       "quantity": 1,
       "created_date": "2018-11-10",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Pirogovo",
       "image_path": null
     }
@@ -1058,7 +1058,7 @@
       "description": "1989 Pontiac",
       "quantity": 1,
       "created_date": "2019-07-20",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Chita",
       "image_path": null
     }
@@ -1072,7 +1072,7 @@
       "description": "2007 Hyundai",
       "quantity": 3,
       "created_date": "2019-08-06",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Lianghu",
       "image_path": null
     }
@@ -1086,7 +1086,7 @@
       "description": "2008 Chrysler",
       "quantity": 3,
       "created_date": "2019-04-29",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Pingpo",
       "image_path": null
     }
@@ -1100,7 +1100,7 @@
       "description": "2008 Dodge",
       "quantity": 2,
       "created_date": "2019-09-27",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Changjiang",
       "image_path": null
     }
@@ -1114,7 +1114,7 @@
       "description": "2010 Lexus",
       "quantity": 3,
       "created_date": "2019-09-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "San Juan de Dios",
       "image_path": null
     }
@@ -1128,7 +1128,7 @@
       "description": "2012 Acura",
       "quantity": 2,
       "created_date": "2019-01-04",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Glafirovka",
       "image_path": null
     }
@@ -1142,7 +1142,7 @@
       "description": "1994 Mercedes-Benz",
       "quantity": 1,
       "created_date": "2019-09-28",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Paris 05",
       "image_path": null
     }
@@ -1156,7 +1156,7 @@
       "description": "2012 Bentley",
       "quantity": 4,
       "created_date": "2019-08-05",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "München",
       "image_path": null
     }
@@ -1170,7 +1170,7 @@
       "description": "2007 Hyundai",
       "quantity": 1,
       "created_date": "2019-09-05",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Ribafria",
       "image_path": null
     }
@@ -1184,7 +1184,7 @@
       "description": "1997 Chrysler",
       "quantity": 4,
       "created_date": "2019-04-22",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Ibshawāy",
       "image_path": null
     }
@@ -1198,7 +1198,7 @@
       "description": "2005 Chevrolet",
       "quantity": 4,
       "created_date": "2019-07-23",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Granada",
       "image_path": null
     }
@@ -1212,7 +1212,7 @@
       "description": "2010 GMC",
       "quantity": 2,
       "created_date": "2019-07-02",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Gromnik",
       "image_path": null
     }
@@ -1226,7 +1226,7 @@
       "description": "1987 Subaru",
       "quantity": 4,
       "created_date": "2019-05-13",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Ridder",
       "image_path": null
     }
@@ -1240,7 +1240,7 @@
       "description": "2001 GMC",
       "quantity": 1,
       "created_date": "2019-08-03",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Sanban",
       "image_path": null
     }
@@ -1254,7 +1254,7 @@
       "description": "1999 GMC",
       "quantity": 4,
       "created_date": "2019-02-27",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Yanfolila",
       "image_path": null
     }
@@ -1268,7 +1268,7 @@
       "description": "2001 Honda",
       "quantity": 2,
       "created_date": "2019-03-31",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Fukui-shi",
       "image_path": null
     }
@@ -1282,7 +1282,7 @@
       "description": "2007 Ford",
       "quantity": 1,
       "created_date": "2019-08-10",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Villefranche-sur-Mer",
       "image_path": null
     }
@@ -1296,7 +1296,7 @@
       "description": "1986 Chevrolet",
       "quantity": 2,
       "created_date": "2019-04-08",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kokterek",
       "image_path": null
     }
@@ -1310,7 +1310,7 @@
       "description": "2004 BMW",
       "quantity": 3,
       "created_date": "2018-11-07",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Temperak",
       "image_path": null
     }
@@ -1324,7 +1324,7 @@
       "description": "1998 Lexus",
       "quantity": 3,
       "created_date": "2019-03-08",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Virovitica",
       "image_path": null
     }
@@ -1338,7 +1338,7 @@
       "description": "2009 Volvo",
       "quantity": 4,
       "created_date": "2018-11-05",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Namballe",
       "image_path": null
     }
@@ -1352,7 +1352,7 @@
       "description": "1999 Audi",
       "quantity": 2,
       "created_date": "2019-04-07",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Henglishan",
       "image_path": null
     }
@@ -1366,7 +1366,7 @@
       "description": "1999 Ford",
       "quantity": 2,
       "created_date": "2019-09-12",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Melgar",
       "image_path": null
     }
@@ -1380,7 +1380,7 @@
       "description": "2008 Lincoln",
       "quantity": 1,
       "created_date": "2019-05-27",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Lingkou",
       "image_path": null
     }
@@ -1394,7 +1394,7 @@
       "description": "2001 Ford",
       "quantity": 1,
       "created_date": "2018-11-07",
-      "product_category_id": 2,
+      "category_id": 2,
       "location": "Kaytitinga",
       "image_path": null
     }
