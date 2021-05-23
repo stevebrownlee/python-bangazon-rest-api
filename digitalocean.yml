@@ -1,0 +1,21 @@
+envs:
+- key: DISABLE_COLLECTSTATIC
+  scope: RUN_AND_BUILD_TIME
+  value: "1"
+name: bangazon-api
+region: nyc
+services:
+- build_command: ./seed_data.sh
+  environment_slug: python
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: stevebrownlee/python-bangazon-rest-api
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: bangazon-api
+  routes:
+  - path: /
+  run_command: gunicorn --worker-tmp-dir /dev/shm  bangazon.wsgi
+  source_dir: /
