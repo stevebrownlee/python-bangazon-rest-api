@@ -25,7 +25,9 @@ SECRET_KEY = ')!ktne!^&jd0sshf7h2*1zm*_b_m8m9+699)^7yi9_6^0!ktnm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'bangazon-api-5q9jm.ondigitalocean.app',
+]
 
 
 # Application definition
