@@ -1,11 +1,10 @@
 
 """View module for handling requests about line items"""
-from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from bangazonapi.models import OrderProduct, Order, Product, Customer
+from bangazonapi.models import OrderProduct, Customer
 
 
 class LineItemSerializer(serializers.ModelSerializer):
@@ -32,7 +31,6 @@ class LineItems(ViewSet):
             HTTP/1.1 204 No Content
         """
         try:
-            # line_item = OrderProduct.objects.get(pk=pk)
             customer = Customer.objects.get(user=request.auth.user)
             line_item = OrderProduct.objects.get(pk=pk, order__customer=customer)
 

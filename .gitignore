@@ -12,3 +12,4 @@ migrations
 bangazonenv
 winterapi
 media
+.env
