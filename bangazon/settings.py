@@ -27,7 +27,7 @@ SECRET_KEY = ')!ktne!^&jd0sshf7h2*1zm*_b_m8m9+699)^7yi9_6^0!ktnm'
 DEBUG = True
 
 ALLOWED_HOSTS = os.getenv("BANGAZON_ALLOWED_HOSTS",
-                          "127.0.0.1,localhost").split(",")
+                          "127.0.0.1,localhost,.vercel.app").split(",")
 
 # Application definition
 
@@ -94,7 +94,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bangazon.wsgi.application'
+# WSGI_APPLICATION = 'bangazon.wsgi.application'
+WSGI_APPLICATION = 'vercel_app.wsgi.app'
 
 
 # Password validation
